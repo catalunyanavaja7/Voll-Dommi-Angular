@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
   imports: [],
   templateUrl: './accesorios.html',
   styleUrl: './accesorios.css',
+  standalone: true
 })
 export class Accesorios {
 

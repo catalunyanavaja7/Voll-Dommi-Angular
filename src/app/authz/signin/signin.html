@@ -4,17 +4,25 @@
 
     <table id="tabla">
       <tr>
-        <td id="registro">Inicia Sesión</td>
+        <td id="registro">Crear Cuenta</td>
       </tr>
       <tr>
         <td>
-          <button id="login">Iniciar Sesion</button>
+          <a href="logIn.html"><button id="login">Iniciar Sesion</button></a>
         </td>
         <td>
-          <a href="singIn.html"><button id="singin">Crear Cuenta</button></a>
+          <button id="singin">Crear Cuenta</button>
         </td>
       </tr>
       <form>
+        <tr>
+          <td><input class="campos" type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre"
+                     required></td>
+        </tr>
+        <tr>
+          <td><input class="campos" type="text" name="apellido" id="apellido"
+                     placeholder="Ingrese su apellido" required></td>
+        </tr>
         <tr>
           <td><input class="campos" type="email" name="correo" id="correo" placeholder="Correo electronico"
                      required></td>
@@ -22,6 +30,14 @@
         <tr>
           <td><input class="campos" type="password" name="contraseña" id="contraseña" placeholder="Contraseña"
                      required></td>
+        </tr>
+        <tr>
+          <td><input class="campos" type="number" name="codigopostal" id="codigopostal"
+                     placeholder="Codigo Postal" required></td>
+        </tr>
+
+        <tr>
+          <td><input class="campos" type="number" name="telefono" id="telefono" placeholder="Telefono"></td>
         </tr>
         <tr>
           <td><button id="acceder">Acceder</button></td>
