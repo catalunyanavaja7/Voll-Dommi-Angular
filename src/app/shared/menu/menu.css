@@ -2,7 +2,6 @@
 
 menu {
   text-align: center;
-  background-color: white;
   margin: 0 auto;
   position: fixed;
   width: 100%;
@@ -19,6 +18,8 @@ menu {
   top: 0;
   left: 0;
   right: 0;
+  background-color: white;
+  transition: background-color 0.3s ease;
 }
 
 #izquierda {
@@ -110,7 +111,7 @@ menu {
 
 /* ==== EFECTO SCROLL ==== */
 
-#navbar.shrink menu {
+#navbar.shrink {
   background-color: #334c71;
 }
 
@@ -120,6 +121,11 @@ menu {
 
 #navbar.shrink #izquierda {
   height: 2em;
+}
+
+#navbar.shrink .textomenu {
+  color: white;
+  transition-duration: 0.2s;
 }
 
 #navbar.shrink .textomenu:hover {
