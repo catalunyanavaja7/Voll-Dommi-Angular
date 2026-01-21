@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oswald:wght@200..700&display=swap');
+
+article {
+  width: 100%;
+  padding-top: 15%;
+}
+
+#anuncio1 {
+  position: relative;
+  height: 30em;
+  width: 85%;
+  background-color: black;
+  margin: 0 auto;
+  border-radius: 15px;
+  margin-bottom: 4%;
+  overflow: hidden;
+}
+
+#anuncio1 video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  display: block;
+  z-index: 1;
+}
+
+#a1txt {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  width: 20%;
+  color: white;
+  font-family: "Oswald";
+  font-weight: bold;
+  font-size: 2.5em;
+  z-index: 5;
+  text-align: right;
+  padding: 1em;
+  border-radius: 10px;
+}
+
+#a1txt p {
+  font-size: 0.5em;
+  font-weight: lighter;
+  margin: 0;
+}
+
+#anuncio2 {
+  height: 30em;
+  width: 85%;
+  margin: 0 auto;
+  border-radius: 15px;
+  margin-bottom: 4%;
+}
+
+#a2img {
+  height: 100%;
+  width: 50%;
+  border-radius: 15px;
+  float: left;
+}
+
+#a2imagen {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 15px 0 0 15px;
+  margin: auto;
+}
+
+#a2txt {
+  max-height: 100%;
+  max-width: 50%;
+  border-radius: 15px;
+  float: left;
+  border-radius: 0 15px 15px 0;
+  font-family: "Oswald";
+  font-weight: bold;
+  font-size: 300%;
+  box-sizing: border-box;
+  padding: 3%;
+  color: #334c71;
+}
+
+#a2txt p {
+  font-size: 50%;
+  font-weight: lighter;
+}
+
+#anuncio3 {
+  height: 30em;
+  width: 85%;
+  margin: 0 auto;
+  border-radius: 15px;
+  background-image: url("/assets/images/chapitas.png");
+  margin-bottom: 4%;
+}
+
+#a3img {
+  height: 100%;
+  width: 50%;
+  border-radius: 15px;
+  float: left;
+}
+
+#a3imagen {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 15px 0 0 15px;
+  margin: auto;
+}
+
+#a3txt {
+  max-height: 100%;
+  max-width: 50%;
+  border-radius: 15px;
+  float: left;
+  border-radius: 0 15px 15px 0;
+  font-family: "Oswald";
+  font-weight: bold;
+  font-size: 300%;
+  box-sizing: border-box;
+  padding: 3%;
+  color: #334c71;
+}
+
+#a3txt p {
+  font-size: 50%;
+  font-weight: lighter;
+}
+
+#anuncio4 {
+  height: 30em;
+  width: 85%;
+  margin: 0 auto;
+  border-radius: 15px;
+  margin-bottom: 4%;
+}
+
+#a4carrusel {
+  height: 100%;
+  width: 50%;
+  border-radius: 15px;
+  float: left;
+  overflow: hidden;
+}
+
+#a4imagen {
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 15px 0 0 15px;
+  border-radius: 0;
+  margin: auto;
+}
+
+#a4txt {
+  max-height: 100%;
+  max-width: 50%;
+  border-radius: 15px;
+  float: left;
+  border-radius: 0 15px 15px 0;
+  font-family: "Oswald";
+  font-weight: bold;
+  font-size: 300%;
+  box-sizing: border-box;
+  padding: 3%;
+  color: #334c71;
+  writing-mode: horizontal-tb;
+}
+
+#a4txt p {
+  font-size: 50%;
+  font-weight: lighter;
+}
