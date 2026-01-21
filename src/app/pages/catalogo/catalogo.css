@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oswald:wght@200..700&display=swap');
+
+
+body, html {
+  width: 100%;
+  margin: 0;
+}
+
+.tienda{
+  padding-top: 15%;
+}
+/*---------------------------INICIO CATALOGO-----------------------------*/
+
+
+/*---------------------------CERVEZA-----------------------------*/
+#cerveza {
+  position: relative;
+  height: 30em;
+  width: 85%;
+  margin: 0 auto;
+  margin-top: 2em;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+#cerveza video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  display: block;
+}
+
+#cerveza .text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: transparent;
+  -webkit-text-stroke: 9px #f5ca54;
+  font-family: "Oswald";
+  font-size: 20em;
+  z-index: 3;
+  pointer-events: none;
+}
+
+#cerveza .overlay {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgb(51, 76, 112);
+  z-index: 2;
+  transition: left 0.7s ease;
+}
+
+#cerveza:hover .overlay {
+  left: 0;
+}
+
+#cerveza:hover .text{
+  color: #f5ca54;
+  transition: left 0.7s ease;
+}
+
+/*---------------------------ACCESORIOS-----------------------------*/
+#accesorios {
+  position: relative;
+  height: 30em;
+  width: 85%;
+  margin: 0 auto;
+  margin-top: 2em;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+#accesorios video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  display: block;
+}
+
+#accesorios .text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: transparent;
+  -webkit-text-stroke: 9px #f5ca54;
+  font-family: "Oswald";
+  font-size: 15em;
+  z-index: 3;
+  pointer-events: none;
+}
+
+#accesorios .overlay {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgb(50, 75, 112);
+  z-index: 2;
+  transition: left 0.7s ease;
+}
+
+#accesorios:hover .overlay {
+  left: 0;
+}
+
+#accesorios:hover .text{
+  color: #f7cb54;
+  transition: left 0.7s ease;
+}
+
+/*---------------------------ROPA-----------------------------*/
+
+#ropa {
+  position: relative;
+  height: 30em;
+  width: 85%;
+  margin: 0 auto;
+  margin-top: 2em;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+#ropa video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  display: block;
+}
+
+#ropa .text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: transparent;
+  -webkit-text-stroke: 9px #f5ca54;
+  font-family: "Oswald";
+  font-size: 20em;
+  z-index: 3;
+  pointer-events: none;
+}
+
+#ropa .overlay {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgb(50, 75, 112);
+  z-index: 2;
+  transition: left 0.7s ease;
+}
+
+#ropa:hover .overlay {
+  left: 0;
+}
+
+#ropa:hover .text{
+  color: #f5ca54;
+  transition: left 0.7s ease;
+}
+
+/*---------------------------EXPERIENCIAS-----------------------------*/
+
+#experiencias {
+  position: relative;
+  height: 30em;
+  width: 85%;
+  margin: 0 auto;
+  margin-top: 2em;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+#experiencias video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  display: block;
+}
+
+#experiencias .text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: transparent;
+  -webkit-text-stroke: 9px #f5ca54;
+  font-family: "Oswald";
+  font-size: 15em;
+  z-index: 3;
+  pointer-events: none;
+}
+
+#experiencias .overlay {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgb(50, 75, 112);
+  z-index: 2;
+  transition: left 0.7s ease;
+}
+
+#experiencias:hover .overlay {
+  left: 0;
+}
+
+#experiencias:hover .text{
+  color: #f5ca54;
+  transition: left 0.7s ease;
+}

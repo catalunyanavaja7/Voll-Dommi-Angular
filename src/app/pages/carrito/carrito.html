@@ -1,0 +1,84 @@
+<div id="navbar"></div>
+<div class="container">
+
+  <div class="listaProductos">
+    <div class="itemProductos">
+      <img src="../Imagenes/clasica.png" alt="Producto 1">
+      <div class="productoInfo">
+        <h3>Voll-Dommi Original (Pack 6 x 33cl)</h3>
+        <p class="precio">5,22 €</p>
+      </div>
+      <div class="cantidad">
+        <button class="botonCantidad">−</button>
+        <span>x05</span>
+        <button class="botonCantidad">+</button>
+      </div>
+    </div>
+
+    <div class="itemProductos">
+      <img src="../Imagenes/vaso1.png" alt="Producto 2">
+      <div class="productoInfo">
+        <h3>Vaso gastronómico Voll-Dommi 33cl (6 u.)</h3>
+        <p class="precio">8,16 €</p>
+      </div>
+      <div class="cantidad">
+        <button class="botonCantidad">−</button>
+        <span>x01</span>
+        <button class="botonCantidad">+</button>
+      </div>
+    </div>
+
+    <div class="back">
+      <a href="catalogo.html">
+        <span>← Seguir comprando</span>
+      </a>
+    </div>
+  </div>
+
+
+  <div class="carritoResumen">
+    <h2>Resumen del carrito</h2>
+    <div class="sumaProductos">
+      <span>Total productos</span>
+      <span>34,26 €</span>
+    </div>
+    <div class="sumaProductos">
+      <span>Total descuentos</span>
+      <span>0,00 €</span>
+    </div>
+    <div class="sumaProductos">
+      <span>Gastos de envío</span>
+      <span>0,00 €</span>
+    </div>
+    <div class="sumaProductos total">
+      <strong>Total pedido</strong>
+      <strong>34,26 €</strong>
+    </div>
+    <button class="botonCheckout">Siguiente: Envío</button>
+    <p class="descuento">¿Tienes un código de descuento?</p>
+  </div>
+</div>
+
+<footer>
+  <iframe src="footer.html" style="width:100%; border:none; height:auto; min-height:180px;" scrolling="no"></iframe>
+</footer>
+
+<script>
+  fetch("../plantillas/menuPlantilla.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("navbar").innerHTML = html;
+      inicializarMenu();
+    })
+
+
+  const navbar = document.getElementById('navbar');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 80) {
+      navbar.classList.add('shrink');
+    } else {
+      navbar.classList.remove('shrink');
+    }
+  });
+</script>

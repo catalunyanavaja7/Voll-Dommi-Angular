@@ -1,0 +1,162 @@
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+
+}
+a{
+  text-decoration: none;
+  color: black;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  margin: 30px auto;
+  gap: 20px;
+  padding: 0 15px;
+
+  padding-top: 15%;
+}
+
+
+.listaProductos {
+  flex: 1;
+  min-width: 60%;
+}
+
+.itemProductos {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.itemProductos img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+.productoInfo {
+  flex: 1;
+}
+
+.productoInfo h3 {
+  font-size: 18px;
+  margin: 0 0 5px 0;
+}
+
+.productoInfo .precio {
+  font-size: 16px;
+  color: #333;
+}
+
+.cantidad {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.botonCantidad {
+  background-color: #324b70;
+  color: white;
+  border: none;
+  font-size: 20px;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+}
+
+.botonCantidad:hover {
+  background-color: #f7cb54;
+}
+
+.back {
+  background-color: #f0fff0;
+  padding: 10px;
+  font-size: 16px;
+  color: #222;
+  cursor: pointer;
+}
+
+.back span:hover {
+  text-decoration: underline;
+}
+
+
+.carritoResumen {
+  border: 1px solid #ccc;
+  padding: 20px;
+  min-width: 250px;
+  max-width: 300px;
+  flex-shrink: 0;
+}
+
+.carritoResumen h2 {
+  font-size: 20px;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.sumaProductos{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.sumaProductos.total {
+  background-color: #f0f0f0;
+  padding: 10px;
+  font-size: 18px;
+}
+
+.botonCheckout {
+  width: 100%;
+  padding: 15px;
+  background-color: #324b70;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.botonCheckout:hover {
+  background-color: #f7cb54;
+}
+
+.descuento {
+  text-align: center;
+  font-size: 14px;
+  color: #333;
+  margin-top: 10px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .cart-summary {
+    max-width: 100%;
+  }
+
+  .product-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .quantity {
+    margin-top: 10px;
+  }
+}

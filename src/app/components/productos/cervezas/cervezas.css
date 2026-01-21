@@ -1,0 +1,258 @@
+
+
+/*-----------------------CERVEZAS-----------------------*/
+
+#catalogo {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  padding-top: 15%;
+}
+a{
+  text-decoration: none;
+}
+
+/*-----------------------CLASICA-----------------------*/
+.clasica {
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.clasica:hover {
+  transform: scale(1.05);
+}
+
+
+.clasica img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.clasica h2 {
+  font-family: "Instrument Serif";
+  color: #334c71;
+  font-size: 2rem;
+  margin: 10px 0 5px 0;
+
+}
+
+
+/*-----------------------LIMON-----------------------*/
+
+.limon {
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.limon:hover {
+  transform: scale(1.05);
+}
+
+.limon img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.limon h2 {
+  font-family: "Instrument Serif";
+  color: #334c71;
+  font-size: 2rem;
+  margin: 10px 0 5px 0;
+
+}
+
+
+/*-----------------------TOSTADA-----------------------*/
+
+.tostada {
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.tostada:hover {
+  transform: scale(1.05);
+}
+
+.tostada img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.tostada h2 {
+  font-family: "Instrument Serif";
+  color: #334c71;
+  font-size: 2rem;
+  margin: 10px 0 5px 0;
+
+}
+
+
+/*-----------------------TROPICAL-----------------------*/
+
+.tropical {
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.tropical:hover {
+  transform: scale(1.05);
+}
+
+.tropical img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.tropical h2 {
+  font-family: "Instrument Serif";
+  color: #334c71;
+  font-size: 2rem;
+  margin: 10px 0 5px 0;
+
+}
+
+
+/*-----------------------IPA-----------------------*/
+
+.ipa {
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.ipa:hover {
+  transform: scale(1.05);
+}
+
+.ipa img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.ipa h2 {
+  font-family: "Instrument Serif";
+  color: #334c71;
+  font-size: 2rem;
+  margin: 10px 0 5px 0;
+
+}
+
+
+/*-----------------------MEDITERRANEA-----------------------*/
+
+.mediterranea {
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.mediterranea:hover {
+  transform: scale(1.05);
+}
+
+.mediterranea img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.mediterranea h2 {
+  font-family: "Instrument Serif";
+  color: #334c71;
+  font-size: 2rem;
+  margin: 10px 0 5px 0;
+
+}
+
+
+/*-----------------------00-----------------------*/
+
+.cerocero {
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.cerocero:hover {
+  transform: scale(1.05);
+}
+
+.cerocero img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.cerocero h2 {
+  font-family: "Instrument Serif";
+  color: #334c71;
+  font-size: 2rem;
+  margin: 10px 0 5px 0;
+
+}
+
+
+/*-----------------------00LIMON-----------------------*/
+
+.cerolimon {
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.cerolimon:hover {
+  transform: scale(1.05);
+}
+
+.cerolimon img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.cerolimon h2 {
+  font-family: "Instrument Serif";
+  color: #334c71;
+  font-size: 2rem;
+  margin: 10px 0 5px 0;
+
+}
+
+
+/*-----------------------00TOSTADA-----------------------*/
+
+
+.cerotostada {
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.cerotostada:hover {
+  transform: scale(1.05);
+}
+
+.cerotostada img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.cerotostada h2 {
+  font-family: "Instrument Serif";
+  color: #334c71;
+  font-size: 2rem;
+  margin: 10px 0 5px 0;
+
+}
+
