@@ -1,0 +1,435 @@
+/*-----------------------ACCESORIOS-----------------------*/
+#contenido{
+  padding-top: 15%;
+}
+#accesorios {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*-----------------------VASOS-----------------------*/
+
+.vaso1 {
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.vaso1:hover {
+  transform: scale(1.05);
+}
+
+
+.vaso1 img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.vaso1 h2 {
+  font-family: "Instrument Serif";
+  color: #334c71;
+  font-size: 2rem;
+  margin: 10px 0 5px 0;
+
+}
+
+.vaso1 p {
+  font-family: "Instrument Serif";
+  color: #334c71;
+  font-size: 1rem;
+  margin: 10px 0 5px 0;
+
+}
+
+
+.vaso2 {
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.vaso2:hover {
+  transform: scale(1.05);
+}
+
+
+.vaso2 img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.vaso2 h2 {
+  font-family: "Instrument Serif";
+  color: #334c71;
+  font-size: 2rem;
+  margin: 10px 0 5px 0;
+
+}
+
+.vaso2 p {
+  font-family: "Instrument Serif";
+  color: #334c71;
+  font-size: 1rem;
+  margin: 10px 0 5px 0;
+
+}
+
+
+.vaso3 {
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.vaso3:hover {
+  transform: scale(1.05);
+}
+
+
+.vaso3 img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.vaso3 h2 {
+  font-family: "Instrument Serif";
+  color: #334c71;
+  font-size: 2rem;
+  margin: 10px 0 5px 0;
+
+}
+
+.vaso3 p {
+  font-family: "Instrument Serif";
+  color: #334c71;
+  font-size: 1rem;
+  margin: 10px 0 5px 0;
+
+}
+
+
+/*-----------------------JARRAS-----------------------*/
+
+
+.jarra1 {
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.jarra1:hover {
+  transform: scale(1.05);
+}
+
+
+.jarra1 img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.jarra1 h2 {
+  font-family: "Instrument Serif";
+  color: #334c71;
+  font-size: 2rem;
+  margin: 10px 0 5px 0;
+
+}
+
+.jarra1 p {
+  font-family: "Instrument Serif";
+  color: #334c71;
+  font-size: 1rem;
+  margin: 10px 0 5px 0;
+
+}
+
+
+.jarra2 {
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.jarra2:hover {
+  transform: scale(1.05);
+}
+
+
+.jarra2 img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.jarra2 h2 {
+  font-family: "Instrument Serif";
+  color: #334c71;
+  font-size: 2rem;
+  margin: 10px 0 5px 0;
+
+}
+
+
+.jarra2 p {
+  font-family: "Instrument Serif";
+  color: #334c71;
+  font-size: 1rem;
+  margin: 10px 0 5px 0;
+
+}
+
+
+.jarra3 {
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.jarra3:hover {
+  transform: scale(1.05);
+}
+
+
+.jarra3 img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.jarra3 h2 {
+  font-family: "Instrument Serif";
+  color: #334c71;
+  font-size: 2rem;
+  margin: 10px 0 5px 0;
+
+}
+
+
+.jarra3 p {
+  font-family: "Instrument Serif";
+  color: #334c71;
+  font-size: 1rem;
+  margin: 10px 0 5px 0;
+
+}
+
+
+/*-----------------------COPAS-----------------------*/
+
+
+.copa1 {
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.copa1:hover {
+  transform: scale(1.05);
+}
+
+
+.copa1 img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.copa1 h2 {
+  font-family: "Instrument Serif";
+  color: #334c71;
+  font-size: 2rem;
+  margin: 10px 0 5px 0;
+
+}
+
+
+.copa1 p {
+  font-family: "Instrument Serif";
+  color: #334c71;
+  font-size: 1rem;
+  margin: 10px 0 5px 0;
+
+}
+
+
+.copa2 {
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.copa2:hover {
+  transform: scale(1.05);
+}
+
+
+.copa2 img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.copa2 h2 {
+  font-family: "Instrument Serif";
+  color: #334c71;
+  font-size: 2rem;
+  margin: 10px 0 5px 0;
+
+}
+
+.copa2 p {
+  font-family: "Instrument Serif";
+  color: #334c71;
+  font-size: 1rem;
+  margin: 10px 0 5px 0;
+
+}
+
+.copa3 {
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.copa3:hover {
+  transform: scale(1.05);
+}
+
+
+.copa3 img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.copa3 h2 {
+  font-family: "Instrument Serif";
+  color: #334c71;
+  font-size: 2rem;
+  margin: 10px 0 5px 0;
+
+}
+
+
+.copa3 p {
+  font-family: "Instrument Serif";
+  color: #334c71;
+  font-size: 1rem;
+  margin: 10px 0 5px 0;
+
+}
+
+/*-----------------------POSAVASOS-----------------------*/
+
+
+.posavasos1 {
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.posavasos1:hover {
+  transform: scale(1.05);
+}
+
+
+.posavasos1 img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.posavasos1 h2 {
+  font-family: "Instrument Serif";
+  color: #334c71;
+  font-size: 2rem;
+  margin: 10px 0 5px 0;
+
+}
+
+
+.posavasos1 p {
+  font-family: "Instrument Serif";
+  color: #334c71;
+  font-size: 1rem;
+  margin: 10px 0 5px 0;
+
+}
+
+
+.posavasos2 {
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.posavasos2:hover {
+  transform: scale(1.05);
+}
+
+
+.posavasos2 img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.posavasos2 h2 {
+  font-family: "Instrument Serif";
+  color: #334c71;
+  font-size: 2rem;
+  margin: 10px 0 5px 0;
+
+}
+
+.posavasos2 p {
+  font-family: "Instrument Serif";
+  color: #334c71;
+  font-size: 1rem;
+  margin: 10px 0 5px 0;
+
+}
+
+
+.posavasos3 {
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.posavasos3:hover {
+  transform: scale(1.05);
+}
+
+
+.posavasos3 img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.posavasos3 h2 {
+  font-family: "Instrument Serif";
+  color: #334c71;
+  font-size: 2rem;
+  margin: 10px 0 5px 0;
+}
+
+.posavasos3 p {
+  font-family: "Instrument Serif";
+  color: #334c71;
+  font-size: 1rem;
+  margin: 10px 0 5px 0;
+
+}
+

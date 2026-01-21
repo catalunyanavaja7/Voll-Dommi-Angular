@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
+
+#general {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: black
+}
+
+#general img.logoanimacion {
+  position: relative;
+  height: 50vh;
+  z-index: 1;
+  pointer-events: none;
+  animation: desvanecer 2.5s ease forwards;
+
+}
+
+#general img.botellin {
+  position: absolute;
+  bottom: -100%;
+  width:12%;
+  z-index: 2;
+  animation: subir 4s ease-in-out forwards;
+}
+
+
+@keyframes subir {
+  0% {
+    bottom: -100%;
+  }
+  50% {
+    bottom: 10%;
+  }
+  100% {
+    bottom: 10%;
+  }
+}
+
+@keyframes desvanecer {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.texto {
+  position: absolute;
+  top: 250px;
+  font-size: 18px;
+  opacity: 0;
+  width: 65vh;
+}
+
+.izquierda {
+  left: 50%;
+  transform: translateX(-50%);
+  animation: salir-izquierda 2s ease-in-out 2s forwards;
+  justify-content: right;
+  text-align: right;
+}
+
+.resaltado {
+  color: #f5ca54;
+}
+
+.derecha {
+  right: 50%;
+  transform: translateX(50%);
+  animation: salir-derecha 2s ease-in-out 2s forwards;
+  text-align: left;
+}
+
+.precios {
+  position: fixed;
+  padding: 16px 16px;
+}
+
+table, td {
+  width: 20em;
+  padding: 1em;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+/* Animaciones */
+@keyframes aparecer {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes salir-izquierda {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-120%);
+  }
+}
+
+@keyframes salir-derecha {
+  0% {
+    opacity: 0;
+    transform: translateX(50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(120%);
+  }
+}
+
+#compra {
+  position: absolute;
+  top: 7px;
+  width: 100%;
+  height: 4em;
+
+}
+
+div.titulo {
+  margin-left: 15%;
+  font-size: 24px;
+  font-family: "Instrument Serif";
+  font-weight: bold;
+  float: left;
+
+}
+
+div.botonCompra button {
+  width: 22vh;
+  float: right;
+  margin-right: 15%;
+  font-size: 24px;
+  font-family: "Instrument Serif";
+  font-weight: bold;
+  padding: 1em;
+  border-radius: 10px;
+  border: 0;
+  transition: all 0.5s ease;
+}
+
+button:hover {
+  color: white;
+  background-color: #f5ca54;
+}
+
+
+#añadirCarrito {
+  background-color: #334c71;
+}
+
+button.añadir {
+  margin-left: 2em;
+  float: right;
+  color: #324b70;
+  font-size: 17px;
+  background-color: #f7cb54;
+  border: 1px solid #f4bf2c;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 10px;
+  box-shadow: 0px 6px 0px #efba2f;
+  transition: all 0.1s;
+}
+
+button.añadir:active {
+  box-shadow: 0px 2px 0px #d35400;
+  position: relative;
+  top: 2px;
+}
+
+#carritoCompra {
+  width: 14vh;
+  border: none;
+  outline: none;
+  border-radius: 15px;
+  padding: 1em;
+  background-color: #ccc;
+  box-shadow: inset 2px 5px 10px rgba(0, 0, 0, 0.3);
+  transition: 300ms ease-in-out;
+}
+
+#carritoCompra:focus {
+  background-color: white;
+  transform: scale(1.05);
+  box-shadow: 13px 13px 100px #969696,
+  -13px -13px 100px #ffffff;
+
+}

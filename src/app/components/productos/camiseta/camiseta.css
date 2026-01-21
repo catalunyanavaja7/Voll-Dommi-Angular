@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
+
+/*--------------------------NAVBAR----------------------------------*/
+#compra {
+  position: absolute;
+  top: 7px;
+  width: 100%;
+  height: 4em;
+
+}
+
+div.titulo {
+  margin-left: 15%;
+  font-size: 24px;
+  font-family: "Instrument Serif";
+  font-weight: bold;
+  float: left;
+
+}
+
+div.botonCompra button {
+  width: 22vh;
+  float: right;
+  margin-right: 15%;
+  font-size: 24px;
+  font-family: "Instrument Serif";
+  font-weight: bold;
+  padding: 0.8em;
+  border-radius: 10px;
+  border: 0;
+  transition: all 0.5s ease;
+}
+
+button:hover {
+  color: white;
+  background-color: #f5ca54;
+}
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #fff;
+  color: #111;
+}
+
+
+.producto {
+  display: flex;
+  gap: 40px;
+  padding: 40px;
+  align-items: flex-start;
+  padding-top: 15%;
+}
+
+
+.galeria {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.galeria img {
+  width: 100%;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+
+.info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.info h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.precio {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.color {
+  color: #444;
+}
+
+
+.tallas {
+  display: flex;
+  gap: 10px;
+}
+
+.tallas button {
+  border: 1px solid #ccc;
+  background: #fff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tallas button:hover {
+  border-color: #111;
+}
+
+.tallas .selected {
+  border-color: #111;
+  background: #111;
+  color: #fff;
+}
+
+
+.cantidad {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.cantidad button {
+  width: 35px;
+  height: 35px;
+  border: 1px solid #ccc;
+  background: #fff;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.cantidad button:hover {
+  background: #f0f0f0;
+}
+
+.cantidad input {
+  width: 60px;
+  text-align: center;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 6px;
+}
+
+
+.botonCesta {
+  background: #324b70;
+  color: #fff;
+  padding: 14px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+
+.botonCesta:hover {
+  background: #122a57;
+}
+
+
+.pago, .exclusivo {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+.exclusivo strong {
+  color: #000;
+}
+
+
+@media (max-width: 900px) {
+  .producto {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .galeria {
+    grid-template-columns: 1fr;
+  }
+
+  .info {
+    width: 100%;
+  }
+
+  .btn-cesta {
+    width: 100%;
+  }
+
+  .cantidad, .tallas {
+    justify-content: center;
+  }
+}

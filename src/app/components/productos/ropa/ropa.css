@@ -1,0 +1,199 @@
+/*-----------------------ROPA-----------------------*/
+#contenedorGeneral{
+  padding-top: 15%;
+}
+#ropa {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*-----------------------CAMISETA-----------------------*/
+
+.camiseta {
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.camiseta:hover {
+  transform: scale(1.05);
+}
+
+
+.camiseta img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.camiseta h2 {
+  font-family: "Instrument Serif";
+  color: #334c71;
+  font-size: 2rem;
+  margin: 10px 0 5px 0;
+
+}
+
+.camiseta p {
+  font-family: "Instrument Serif";
+  color: #334c71;
+  font-size: 1rem;
+  margin: 10px 0 5px 0;
+
+}
+
+/*-----------------------BAÑADOR-----------------------*/
+
+.bañador {
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.bañador:hover {
+  transform: scale(1.05);
+}
+
+
+.bañador img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+
+}
+
+.bañador h2 {
+  font-family: "Instrument Serif";
+  color: #334c71;
+  font-size: 2rem;
+  margin: 10px 0 5px 0;
+
+}
+
+.bañador p {
+  font-family: "Instrument Serif";
+  color: #334c71;
+  font-size: 1rem;
+  margin: 10px 0 5px 0;
+
+}
+
+/*-----------------------GAFAS-----------------------*/
+
+.gafas {
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.gafas:hover {
+  transform: scale(1.05);
+}
+
+
+.gafas img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.gafas h2 {
+  font-family: "Instrument Serif";
+  color: #334c71;
+  font-size: 2rem;
+  margin: 10px 0 5px 0;
+
+}
+
+.gafas p {
+  font-family: "Instrument Serif";
+  color: #334c71;
+  font-size: 1rem;
+  margin: 10px 0 5px 0;
+
+}
+
+
+/*-----------------------SUETER-----------------------*/
+
+
+
+/*-----------------------GORRA-----------------------*/
+
+.gorra {
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.gorra:hover {
+  transform: scale(1.05);
+}
+
+
+.gorra img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.gorra h2 {
+  font-family: "Instrument Serif";
+  color: #334c71;
+  font-size: 2rem;
+  margin: 10px 0 5px 0;
+
+}
+
+
+.gorra p {
+  font-family: "Instrument Serif";
+  color: #334c71;
+  font-size: 1rem;
+  margin: 10px 0 5px 0;
+
+}
+
+/*-----------------------CROCS-----------------------*/
+
+.crocs {
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.crocs:hover {
+  transform: scale(1.05);
+}
+
+
+.crocs img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.crocs h2 {
+  font-family: "Instrument Serif";
+  color: #334c71;
+  font-size: 2rem;
+  margin: 10px 0 5px 0;
+
+}
+
+
+.crocs p {
+  font-family: "Instrument Serif";
+  color: #334c71;
+  font-size: 1rem;
+  margin: 10px 0 5px 0;
+
+}
+
