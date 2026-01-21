@@ -58,27 +58,3 @@
     <p class="descuento">¿Tienes un código de descuento?</p>
   </div>
 </div>
-
-<footer>
-  <iframe src="footer.html" style="width:100%; border:none; height:auto; min-height:180px;" scrolling="no"></iframe>
-</footer>
-
-<script>
-  fetch("../plantillas/menuPlantilla.html")
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById("navbar").innerHTML = html;
-      inicializarMenu();
-    })
-
-
-  const navbar = document.getElementById('navbar');
-
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 80) {
-      navbar.classList.add('shrink');
-    } else {
-      navbar.classList.remove('shrink');
-    }
-  });
-</script>

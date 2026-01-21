@@ -8,7 +8,7 @@
       </tr>
       <tr>
         <td>
-          <a href="logIn.html"><button id="login">Iniciar Sesion</button></a>
+          <a routerLink="/sesion"><button id="login">Iniciar Sesion</button></a>
         </td>
         <td>
           <button id="singin">Crear Cuenta</button>
@@ -47,27 +47,4 @@
     </table>
 
   </div>
-
-
 </article>
-
-
-<script>
-  fetch("../plantillas/menuPlantilla.html")
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById("navbar").innerHTML = html;
-      inicializarMenu();
-    })
-
-
-  const navbar = document.getElementById('navbar');
-
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 80) {
-      navbar.classList.add('shrink');
-    } else {
-      navbar.classList.remove('shrink');
-    }
-  });
-</script>

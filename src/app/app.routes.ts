@@ -7,7 +7,11 @@ import {Ropa} from './components/productos/ropa/ropa';
 import {Vaso} from './components/productos/vaso/vaso';
 import {Catalogo} from './pages/catalogo/catalogo';
 import {Carrito} from './pages/carrito/carrito';
-import { Inicio } from './pages/inicio/inicio';
+import {Inicio} from './pages/inicio/inicio';
+import {Contacto} from './pages/contacto/contacto';
+import {Condiciones} from './pages/condiciones/condiciones';
+import {Signin} from './authz/signin/signin';
+import {Login} from './authz/login/login';
 
 export const routes: Routes = [
   {path: 'accesorios', component: Accesorios},
@@ -18,6 +22,10 @@ export const routes: Routes = [
   {path: 'vaso', component: Vaso},
   {path: 'catalogo', component: Catalogo},
   {path: 'carrito', component: Carrito},
-  { path: '', component: Inicio }
+  {path: '', component: Inicio},
+  {path: 'contacto', component: Contacto},
+  {path: 'condiciones', component: Condiciones},
+  {path: 'sesion', component: Login},
+  {path: 'registro', component: Signin}
 
 ];

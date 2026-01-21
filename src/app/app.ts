@@ -3,10 +3,12 @@ import { RouterOutlet } from '@angular/router';
 import {Inicio} from './pages/inicio/inicio';
 import {Accesorios} from './components/productos/accesorios/accesorios';
 import {Catalogo} from './pages/catalogo/catalogo';
+import {Menu} from "./shared/menu/menu";
+import {Footer} from './shared/footer/footer';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, Menu, Footer],
   templateUrl: './app.html',
   standalone: true,
   styleUrl: './app.css'
