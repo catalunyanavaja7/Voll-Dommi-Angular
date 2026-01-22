@@ -1,8 +1,15 @@
-<div id="navbar"></div>
-<article>
-  <div id="formulario">
 
-    <table id="tabla">
+
+
+
+
+<article>
+  <aside class="AD">
+    <img src="assets/images/anuncioNegro.png" id="imagenIzquierda">
+  </aside>
+
+  <div id="formulario">
+    <table id="table">
       <tr>
         <td id="registro">Inicia Sesión</td>
       </tr>
@@ -11,47 +18,32 @@
           <button id="login">Iniciar Sesion</button>
         </td>
         <td>
-          <a routerLink="/registro"><button id="singin">Crear Cuenta</button></a>
+          <a routerLink="/registro">
+            <button id="singin">Crear Cuenta</button>
+          </a>
         </td>
       </tr>
-      <form>
-        <tr>
-          <td><input class="campos" type="email" name="correo" id="correo" placeholder="Correo electronico"
-                     required></td>
-        </tr>
-        <tr>
-          <td><input class="campos" type="password" name="contraseña" id="contraseña" placeholder="Contraseña"
-                     required></td>
-        </tr>
-        <tr>
-          <td><button id="acceder">Acceder</button></td>
-        </tr>
-
-      </form>
+      <tr>
+        <td><input class="campos" type="email" name="correo" id="correo" placeholder="Correo electronico"
+                   required></td>
+      </tr>
+      <tr>
+        <td><input class="campos" type="password" name="contraseña" id="contraseña" placeholder="Contraseña"
+                   required></td>
+      </tr>
+      <tr>
+        <td>
+          <button id="acceder">Acceder</button>
+        </td>
+      </tr>
     </table>
 
   </div>
-
-
+  <aside class="AD">
+    <video autoplay muted loop id="imagenDerecha">
+      <source src="assets/video/anuncio.mp4">
+    </video>
+  </aside>
 </article>
 
 
-<script>
-  fetch("../plantillas/menuPlantilla.html")
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById("navbar").innerHTML = html;
-      inicializarMenu();
-    })
-
-
-  const navbar = document.getElementById('navbar');
-
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 80) {
-      navbar.classList.add('shrink');
-    } else {
-      navbar.classList.remove('shrink');
-    }
-  });
-</script>

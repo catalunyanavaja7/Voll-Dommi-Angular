@@ -4,6 +4,22 @@ body {
   font-family: "Oswald";
 }
 
+#imagenIzquierda {
+  display: flex;
+  float: left;
+  width: 100%;
+}
+
+#imagenDerecha {
+  display: flex;
+  float: left;
+  width: 100%;
+}
+
+.AD {
+  width: 20%;
+}
+
 article {
   display: flex;
   justify-content: center;
@@ -12,9 +28,11 @@ article {
 }
 
 #formulario {
-  width: 1000px;
-  align-self: center;
+  width: 55%;
+  height: 500px;
   border: 1px solid lightgrey;
+  margin-right: 25px;
+  margin-left: 25px;
   box-shadow: 1px 1px 5px 2px lightgrey;
   border-radius: 10px;
   background-color: #334c71;
@@ -29,7 +47,6 @@ article {
 
 table {
   width: 100%;
-  display: flex;
   padding-top: 10px;
   padding-bottom: 10px;
   justify-content: center;

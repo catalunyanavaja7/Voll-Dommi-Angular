@@ -27,5 +27,4 @@ export const routes: Routes = [
   {path: 'condiciones', component: Condiciones},
   {path: 'sesion', component: Login},
   {path: 'registro', component: Signin}
-
 ];
