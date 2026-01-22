@@ -4,6 +4,7 @@ import {Menu} from '../../shared/menu/menu';
 
 @Component({
   selector: 'app-catalogo',
+  standalone: true,
   imports: [
     RouterLink,
     Menu,
@@ -11,7 +12,6 @@ import {Menu} from '../../shared/menu/menu';
   ],
   templateUrl: './catalogo.html',
   styleUrl: './catalogo.css',
-  standalone: true
 })
 export class Catalogo {
 
