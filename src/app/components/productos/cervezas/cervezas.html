@@ -1,52 +1,52 @@
-<div id="navbar"></div>
-<div id="catalogo">
-  <a routerLink="/clasica">
-    <div class="clasica">
-      <img src="assets/images/clasica.png" />
-      <h2>Voll - Dommi Original</h2>
-
-    </div>
-  </a>
-  <div class="limon">
-    <img src="assets/images/limon.png"/>
-    <h2>Voll - Dommi Lemon Twist</h2>
-
+<!-- SECCIÓN DE FILTROS -->
+<div class="filtros">
+  <div class="buscador">
+    <input
+      type="text"
+      [(ngModel)]="searchText"
+      (input)="filtrarCervezas()"
+      placeholder="Buscar cerveza..."
+    >
   </div>
-  <div class="tostada">
-    <img src="assets/images/tostada.png"/>
-    <h2>Voll - Dommi Tostada</h2>
 
-  </div>
-  <div class="tropical">
-    <img src="assets/images/tropical.png" alt="#">
-    <h2>Voll - Dommi Tropic</h2>
-
-  </div>
-  <div class="ipa">
-    <img src="assets/images/IPA.png" alt="#">
-    <h2>Voll - Dommi IPA</h2>
-
-  </div>
-  <div class="mediterranea">
-    <img src="assets/images/mediterranea.png" alt="#">
-    <h2>Voll - Dommi Marel</h2>
-
-  </div>
-  <div class="cerocero">
-    <img src="assets/images/cerocero.png"/>
-    <h2>Voll - Dommi 00 Original</h2>
-
-  </div>
-  <div class="cerolimon">
-    <img src="assets/images/cerocerolimon.png"/>
-    <h2>Voll - Dommi 00 Citrus</h2>
-
-  </div>
-  <div class="cerotostada">
-    <img src="assets/images/cerocerotostada.png" alt="#">
-    <h2>Voll - Dommi 00 Caramelo</h2>
-
+  <div class="categoria">
+    <select
+      [(ngModel)]="selectedCategory"
+      (change)="filtrarCervezas()"
+    >
+      <option value="todas">Todas las cervezas</option>
+      <option value="original">Voll-Dommi Original</option>
+      <option value="00">Voll-Dommi 00 (Sin alcohol)</option>
+    </select>
   </div>
 </div>
 
+<!-- CATÁLOGO -->
+<div id="catalogo">
+  <ng-container *ngFor="let cerveza of cervezasFiltradas">
 
+    <a *ngIf="cerveza.ruta" [routerLink]="cerveza.ruta">
+      <div [class]="cerveza.clase" [attr.data-categoria]="cerveza.categoria">
+        <img [src]="cerveza.imagen" [alt]="cerveza.nombre" />
+        <h2>{{ cerveza.nombre }}</h2>
+      </div>
+    </a>
+
+
+    <div
+      *ngIf="!cerveza.ruta"
+      [class]="cerveza.clase"
+      [attr.data-categoria]="cerveza.categoria"
+    >
+      <img [src]="cerveza.imagen" [alt]="cerveza.nombre" />
+      <h2>{{ cerveza.nombre }}</h2>
+    </div>
+  </ng-container>
+
+
+  <div class="no-resultados" *ngIf="cervezasFiltradas.length === 0">
+    <div class="no-resultados-icon">🍺</div>
+    <h3>No se encontraron cervezas</h3>
+    <p>Intenta con otros términos de búsqueda o categoría</p>
+  </div>
+</div>
