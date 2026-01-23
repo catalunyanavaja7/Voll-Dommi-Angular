@@ -1,10 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oswald:wght@200..700&display=swap');
-
-body {
-  font-family: "Oswald";
-}
-
 article {
+  font-family: "Oswald";
   display: flex;
   justify-content: center;
   width: 100%;
@@ -12,9 +8,11 @@ article {
 }
 
 #formulario {
-  width: 1000px;
-  align-self: center;
+  width: 55%;
+  height: 670px;
   border: 1px solid lightgrey;
+  margin-right: 25px;
+  margin-left: 25px;
   box-shadow: 1px 1px 5px 2px lightgrey;
   border-radius: 10px;
   background-color: #334c71;
@@ -27,13 +25,23 @@ article {
 }
 
 
-table {
+#table {
   width: 100%;
-  display: flex;
   padding-top: 10px;
   padding-bottom: 10px;
   justify-content: center;
 
+}
+
+input {
+  display: flex;
+  justify-content: center;
+  justify-self: center;
+  width: 60%;
+  height: 45px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  font-size: 19px;
 }
 
 tr {
@@ -45,7 +53,7 @@ tr {
 .campos {
   border-radius: 5px;
   font-size: 18px;
-  width: 580px;
+  width: 550px;
   height: 40px;
   margin-bottom: 10px;
   font-family: "Oswald";
@@ -55,6 +63,14 @@ button {
   margin-bottom: 45px;
   font-family: "Oswald";
   font-size: 20px;
+}
+
+#registrarse {
+  width: 200px;
+  height: 60px;
+  border-radius: 10px;
+  margin-top: 20px;
+  transition: background 1s ease;
 }
 
 #login {
@@ -88,7 +104,23 @@ button {
   transition: background 1s ease;
 }
 
-#acceder:hover {
+#registrarse:hover {
   background: linear-gradient(to bottom, #f7cb54, #C9A644);
   color: white;
+}
+
+#imagenIzquierda {
+  display: flex;
+  float: left;
+  width: 100%;
+}
+
+#imagenDerecha {
+  display: flex;
+  float: left;
+  width: 100%;
+}
+
+.AD {
+  width: 20%;
 }

@@ -7,8 +7,6 @@ import {Menu} from '../../shared/menu/menu';
   standalone: true,
   imports: [
     RouterLink,
-    Menu,
-    RouterOutlet
   ],
   templateUrl: './catalogo.html',
   styleUrl: './catalogo.css',

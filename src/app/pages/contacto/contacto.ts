@@ -3,7 +3,7 @@ import {Menu} from '../../shared/menu/menu';
 
 @Component({
   selector: 'app-contacto',
-  imports: [Menu],
+  imports: [],
   templateUrl: './contacto.html',
   styleUrl: './contacto.css',
   standalone: true

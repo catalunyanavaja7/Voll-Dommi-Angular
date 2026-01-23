@@ -9,9 +9,17 @@
     <img src="./assets/images/logoSoloTexto.png" class="logotexto">
   </div>
   <div id="derecha">
+    @if (!authService.estaLogueado()) {
+      <a class="textomenu" routerLink="registro">REGISTRO</a>
+    }
     <a class="textomenu" routerLink="condiciones">CONDICIONES</a>
-    <a class="textomenu" routerLink="registro">REGISTRO</a>
-    <a class="textomenu" routerLink="carrito">CARRITO</a>
+    <a class="textomenu carrito-link" routerLink="carrito">CARRITO</a>
+
+    @if (authService.estaLogueado()) {
+      <a class="usuario-nombre">{{authService.obtenerUsuarioLogueado()?.nombre}}</a>
+      <a class="salir" (click)="cerrarSesion()">SALIR</a>
+    }
+
   </div>
   <div id="absoluta"></div>
 </nav>

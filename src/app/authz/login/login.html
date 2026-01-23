@@ -1,11 +1,8 @@
-
-
-
-
-
 <article>
   <aside class="AD">
-    <img src="assets/images/anuncioNegro.png" id="imagenIzquierda">
+    <video autoplay muted loop playsinline id="imagenIzquierda">
+      <source src="assets/video/anuncioNegro.mp4">
+    </video>
   </aside>
 
   <div id="formulario">
@@ -23,27 +20,42 @@
           </a>
         </td>
       </tr>
-      <tr>
-        <td><input class="campos" type="email" name="correo" id="correo" placeholder="Correo electronico"
-                   required></td>
-      </tr>
-      <tr>
-        <td><input class="campos" type="password" name="contraseña" id="contraseña" placeholder="Contraseña"
-                   required></td>
-      </tr>
-      <tr>
-        <td>
-          <button id="acceder">Acceder</button>
-        </td>
-      </tr>
     </table>
 
+    <form (ngSubmit)="login()">
+      <input
+        type="email"
+        [(ngModel)]="email"
+        name="correo"
+        placeholder="Correo electronico"
+        required
+      >
+
+      <input
+        type="password"
+        [(ngModel)]="password"
+        name="contraseña"
+        placeholder="Contraseña"
+        required
+      >
+
+      <tr>
+        <td>
+          <button id="iniciarSesion">Acceder</button>
+        </td>
+      </tr>
+    </form>
+
+
   </div>
+
   <aside class="AD">
-    <video autoplay muted loop id="imagenDerecha">
-      <source src="assets/video/anuncio.mp4">
+    <video autoplay muted loop playsinline id="imagenDerecha">
+      <source src="assets/video/anuncioAmarillo.mp4">
     </video>
   </aside>
+
+
 </article>
 
 
