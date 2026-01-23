@@ -1,258 +1,213 @@
 
+a {
+  text-decoration: none;
+}
 
-/*-----------------------CERVEZAS-----------------------*/
+
+.filtros{
+  margin-top: 2em;
+  background: #334c70;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Buscador */
+.buscador {
+  padding-top: 10px;
+  flex: 1;
+  min-width: 250px;
+  position: relative;
+}
+
+.buscador input {
+  width: 100%;
+  padding: 12px 15px 12px 45px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.buscador input:focus {
+  outline: none;
+  border-color: #334c71;
+  box-shadow: 0 0 0 3px rgba(51, 76, 113, 0.1);
+}
+
+.buscador::before {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+}
+
+
+.categoria{
+  min-width: 220px;
+}
+
+.categoria select {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 16px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #334c71;
+  font-weight: 500;
+}
+
+.categoria select:focus {
+  outline: none;
+  border-color: #334c71;
+  box-shadow: 0 0 0 3px rgba(51, 76, 113, 0.1);
+}
+
 
 #catalogo {
   display: grid;
   grid-template-columns: repeat(3, minmax(200px, 1fr));
   gap: 20px;
   padding: 20px;
-  padding-top: 15%;
-}
-a{
-  text-decoration: none;
-}
-
-/*-----------------------CLASICA-----------------------*/
-.clasica {
-  overflow: hidden;
-  text-align: center;
-  transition: transform 0.2s;
-}
-
-.clasica:hover {
-  transform: scale(1.05);
+  padding-top: 120px;
+  max-width: 1400px;
+  margin: 0 auto;
+  margin-top: 7em;
 }
 
 
-.clasica img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.clasica h2 {
-  font-family: "Instrument Serif";
-  color: #334c71;
-  font-size: 2rem;
-  margin: 10px 0 5px 0;
-
-}
-
-
-/*-----------------------LIMON-----------------------*/
-
-.limon {
-  overflow: hidden;
-  text-align: center;
-  transition: transform 0.2s;
-}
-
-.limon:hover {
-  transform: scale(1.05);
-}
-
-.limon img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.limon h2 {
-  font-family: "Instrument Serif";
-  color: #334c71;
-  font-size: 2rem;
-  margin: 10px 0 5px 0;
-
-}
-
-
-/*-----------------------TOSTADA-----------------------*/
-
-.tostada {
-  overflow: hidden;
-  text-align: center;
-  transition: transform 0.2s;
-}
-
-.tostada:hover {
-  transform: scale(1.05);
-}
-
-.tostada img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.tostada h2 {
-  font-family: "Instrument Serif";
-  color: #334c71;
-  font-size: 2rem;
-  margin: 10px 0 5px 0;
-
-}
-
-
-/*-----------------------TROPICAL-----------------------*/
-
-.tropical {
-  overflow: hidden;
-  text-align: center;
-  transition: transform 0.2s;
-}
-
-.tropical:hover {
-  transform: scale(1.05);
-}
-
-.tropical img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.tropical h2 {
-  font-family: "Instrument Serif";
-  color: #334c71;
-  font-size: 2rem;
-  margin: 10px 0 5px 0;
-
-}
-
-
-/*-----------------------IPA-----------------------*/
-
-.ipa {
-  overflow: hidden;
-  text-align: center;
-  transition: transform 0.2s;
-}
-
-.ipa:hover {
-  transform: scale(1.05);
-}
-
-.ipa img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.ipa h2 {
-  font-family: "Instrument Serif";
-  color: #334c71;
-  font-size: 2rem;
-  margin: 10px 0 5px 0;
-
-}
-
-
-/*-----------------------MEDITERRANEA-----------------------*/
-
-.mediterranea {
-  overflow: hidden;
-  text-align: center;
-  transition: transform 0.2s;
-}
-
-.mediterranea:hover {
-  transform: scale(1.05);
-}
-
-.mediterranea img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.mediterranea h2 {
-  font-family: "Instrument Serif";
-  color: #334c71;
-  font-size: 2rem;
-  margin: 10px 0 5px 0;
-
-}
-
-
-/*-----------------------00-----------------------*/
-
-.cerocero {
-  overflow: hidden;
-  text-align: center;
-  transition: transform 0.2s;
-}
-
-.cerocero:hover {
-  transform: scale(1.05);
-}
-
-.cerocero img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.cerocero h2 {
-  font-family: "Instrument Serif";
-  color: #334c71;
-  font-size: 2rem;
-  margin: 10px 0 5px 0;
-
-}
-
-
-/*-----------------------00LIMON-----------------------*/
-
-.cerolimon {
-  overflow: hidden;
-  text-align: center;
-  transition: transform 0.2s;
-}
-
-.cerolimon:hover {
-  transform: scale(1.05);
-}
-
-.cerolimon img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.cerolimon h2 {
-  font-family: "Instrument Serif";
-  color: #334c71;
-  font-size: 2rem;
-  margin: 10px 0 5px 0;
-
-}
-
-
-/*-----------------------00TOSTADA-----------------------*/
-
-
+.clasica,
+.limon,
+.tostada,
+.tropical,
+.ipa,
+.mediterranea,
+.cerocero,
+.cerolimon,
 .cerotostada {
   overflow: hidden;
   text-align: center;
   transition: transform 0.2s;
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
+.clasica:hover,
+.limon:hover,
+.tostada:hover,
+.tropical:hover,
+.ipa:hover,
+.mediterranea:hover,
+.cerocero:hover,
+.cerolimon:hover,
 .cerotostada:hover {
   transform: scale(1.05);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
 }
 
+.clasica img,
+.limon img,
+.tostada img,
+.tropical img,
+.ipa img,
+.mediterranea img,
+.cerocero img,
+.cerolimon img,
 .cerotostada img {
   width: 100%;
   height: auto;
   display: block;
+  border-radius: 8px;
 }
 
+.clasica h2,
+.limon h2,
+.tostada h2,
+.tropical h2,
+.ipa h2,
+.mediterranea h2,
+.cerocero h2,
+.cerolimon h2,
 .cerotostada h2 {
-  font-family: "Instrument Serif";
+  font-family: "Instrument Serif", serif;
   color: #334c71;
-  font-size: 2rem;
-  margin: 10px 0 5px 0;
-
+  font-size: 1.8rem;
+  margin: 15px 0 5px 0;
+  line-height: 1.3;
 }
 
+
+.no-resultados {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  margin-top: 5em;
+}
+
+.no-resultados-icon {
+  font-size: 80px;
+  margin-bottom: 20px;
+}
+
+.no-resultados h3 {
+  color: #334c71;
+  font-family: "Instrument Serif", serif;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.no-resultados p {
+  color: #666;
+  font-size: 16px;
+}
+
+
+@media (max-width: 1024px) {
+  #catalogo {
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .filtros-container {
+    flex-direction: column;
+  }
+
+  .buscador-wrapper,
+  .categoria-wrapper {
+    min-width: 100%;
+  }
+
+  #catalogo {
+    grid-template-columns: 1fr;
+    padding-top: 180px;
+  }
+
+  .clasica h2,
+  .limon h2,
+  .tostada h2,
+  .tropical h2,
+  .ipa h2,
+  .mediterranea h2,
+  .cerocero h2,
+  .cerolimon h2,
+  .cerotostada h2 {
+    font-size: 1.5rem;
+  }
+}
