@@ -1,83 +1,60 @@
-<div id="navbar"></div>
-<div id="contenido">
-  <div id="accesorios">
+<!-- SECCIÓN DE FILTROS -->
+<div class="filtros">
+  <div class="buscador">
+    <input
+      type="text"
+      [(ngModel)]="searchText"
+      (input)="filtrarAccesorios()"
+      placeholder="Buscar accesorio..."
+    >
+  </div>
 
-    <a routerLink="/vaso">
-
-      <div class="vaso1">
-        <img src="assets/images/vaso1.png"/>
-        <h2>Vaso </h2>
-        <p>16,50</p>
-      </div>
-    </a>
-
-    <div class="vaso2">
-      <img src="assets/images/vaso2.png">
-      <h2>Vaso </h2>
-      <p>12,99</p>
-    </div>
-
-    <div class="vaso3">
-      <img src="assets/images/vaso3.png">
-      <h2>Vaso </h2>
-      <p>12,99</p>
-    </div>
-
-    <div class="jarra1">
-      <img src="assets/images/jarra1.png">
-      <h2>Jarra</h2>
-      <p>12,99</p>
-    </div>
-
-    <div class="jarra2">
-      <img src="assets/images/jarra2.png">
-      <h2>Jarra</h2>
-      <p>12,99</p>
-    </div>
-
-    <div class="jarra3">
-      <img src="assets/images/jarra3.png">
-      <h2>Jarra</h2>
-      <p>12,99</p>
-    </div>
-
-    <div class="copa1">
-      <img src="assets/images/copa1.png">
-      <h2>copa</h2>
-      <p>12,99</p>
-    </div>
-
-    <div class="copa2">
-      <img src="assets/images/copa2.png">
-      <h2>copa</h2>
-      <p>12,99</p>
-    </div>
-
-    <div class="copa3">
-      <img src="assets/images/copa3.png">
-      <h2>copa</h2>
-      <p>12,99</p>
-    </div>
-
-    <div class="posavasos1">
-      <img src="assets/images/pvasos1.png">
-      <h2>posavasos</h2>
-      <p>12,99</p>
-    </div>
-
-    <div class="posavasos2">
-      <img src="assets/images/pvasos2.png">
-      <h2>posavasos</h2>
-      <p>12,99</p>
-    </div>
-
-    <div class="posavasos3">
-      <img src="assets/images/pvasos3.png">
-      <h2>posavasos</h2>
-      <p>12,99</p>
-    </div>
-
-
+  <div class="categoria">
+    <select
+      [(ngModel)]="selectedCategory"
+      (change)="filtrarAccesorios()"
+    >
+      <option value="todas">Todos los accesorios</option>
+      <option value="vasos">Vasos</option>
+      <option value="jarras">Jarras</option>
+      <option value="copas">Copas</option>
+      <option value="posavasos">Posavasos</option>
+    </select>
   </div>
 </div>
 
+<!-- CATÁLOGO DE ACCESORIOS -->
+<div id="contenido">
+  <div id="accesorios">
+
+    <ng-container *ngFor="let accesorio of accesoriosFiltrados">
+      <!-- Si tiene ruta, muestra el enlace -->
+      <a *ngIf="accesorio.ruta" [routerLink]="accesorio.ruta">
+        <div [class]="accesorio.clase" [attr.data-categoria]="accesorio.categoria">
+          <img [src]="accesorio.imagen" [alt]="accesorio.nombre" />
+          <h2>{{ accesorio.nombre }}</h2>
+          <p>{{ accesorio.precio }}</p>
+        </div>
+      </a>
+
+
+      <div
+        *ngIf="!accesorio.ruta"
+        [class]="accesorio.clase"
+        [attr.data-categoria]="accesorio.categoria"
+      >
+        <img [src]="accesorio.imagen" [alt]="accesorio.nombre" />
+        <h2>{{ accesorio.nombre }}</h2>
+        <p>{{ accesorio.precio }}</p>
+      </div>
+    </ng-container>
+
+    <!-- Mensaje cuando no hay resultados -->
+    <div class="no-resultados" *ngIf="accesoriosFiltrados.length === 0">
+      <div class="no-resultados-icon">🍺</div>
+      <h3>No se encontraron accesorios</h3>
+      <p>Intenta con otros términos de búsqueda o categoría</p>
+    </div>
+
+  </div>
+</div>

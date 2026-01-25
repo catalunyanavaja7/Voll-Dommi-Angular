@@ -1,435 +1,203 @@
-/*-----------------------ACCESORIOS-----------------------*/
-#contenido{
-  padding-top: 15%;
-}
-#accesorios {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(200px, 1fr));
-  gap: 20px;
-  padding: 20px;
-}
 
 a {
   text-decoration: none;
 }
 
-/*-----------------------VASOS-----------------------*/
+/* SECCIÓN DE FILTROS */
+.filtros {
+  background: #334c70;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 40px;
+}
 
-.vaso1 {
+/* Buscador */
+.buscador {
+  flex: 1;
+  min-width: 250px;
+  position: relative;
+}
+
+.buscador input {
+  width: 100%;
+  padding: 12px 15px 12px 45px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.buscador input:focus {
+  outline: none;
+  border-color: #334c71;
+  box-shadow: 0 0 0 3px rgba(51, 76, 113, 0.1);
+}
+
+.buscador::before {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+}
+
+/* Selector de categorías */
+.categoria {
+  min-width: 220px;
+}
+
+.categoria select {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 16px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #334c71;
+  font-weight: 500;
+}
+
+.categoria select:focus {
+  outline: none;
+  border-color: #334c71;
+  box-shadow: 0 0 0 3px rgba(51, 76, 113, 0.1);
+}
+
+/* CONTENIDO */
+#contenido {
+  padding-top: 100px;
+}
+
+/* ACCESORIOS */
+#accesorios {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+
+.vaso1, .vaso2, .vaso3,
+.jarra1, .jarra2, .jarra3,
+.copa1, .copa2, .copa3,
+.posavasos1, .posavasos2, .posavasos3 {
   overflow: hidden;
   text-align: center;
   transition: transform 0.2s;
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
-.vaso1:hover {
+.vaso1:hover, .vaso2:hover, .vaso3:hover,
+.jarra1:hover, .jarra2:hover, .jarra3:hover,
+.copa1:hover, .copa2:hover, .copa3:hover,
+.posavasos1:hover, .posavasos2:hover, .posavasos3:hover {
   transform: scale(1.05);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
 }
 
-
-.vaso1 img {
+.vaso1 img, .vaso2 img, .vaso3 img,
+.jarra1 img, .jarra2 img, .jarra3 img,
+.copa1 img, .copa2 img, .copa3 img,
+.posavasos1 img, .posavasos2 img, .posavasos3 img {
   width: 100%;
   height: auto;
   display: block;
+  border-radius: 8px;
 }
 
-.vaso1 h2 {
-  font-family: "Instrument Serif";
+.vaso1 h2, .vaso2 h2, .vaso3 h2,
+.jarra1 h2, .jarra2 h2, .jarra3 h2,
+.copa1 h2, .copa2 h2, .copa3 h2,
+.posavasos1 h2, .posavasos2 h2, .posavasos3 h2 {
+  font-family: "Instrument Serif", serif;
   color: #334c71;
-  font-size: 2rem;
-  margin: 10px 0 5px 0;
-
+  font-size: 1.8rem;
+  margin: 15px 0 10px 0;
+  line-height: 1.3;
 }
 
-.vaso1 p {
-  font-family: "Instrument Serif";
-  color: #334c71;
-  font-size: 1rem;
-  margin: 10px 0 5px 0;
-
+.vaso1 p, .vaso2 p, .vaso3 p,
+.jarra1 p, .jarra2 p, .jarra3 p,
+.copa1 p, .copa2 p, .copa3 p,
+.posavasos1 p, .posavasos2 p, .posavasos3 p {
+  font-size: 1.5rem;
+  color: #ff6b35;
+  font-weight: 600;
+  margin: 5px 0;
 }
 
-
-.vaso2 {
-  overflow: hidden;
+/* Mensaje de no resultados */
+.no-resultados {
+  grid-column: 1 / -1;
   text-align: center;
-  transition: transform 0.2s;
+  padding: 60px 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
-.vaso2:hover {
-  transform: scale(1.05);
+.no-resultados-icon {
+  font-size: 80px;
+  margin-bottom: 20px;
 }
 
-
-.vaso2 img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.vaso2 h2 {
-  font-family: "Instrument Serif";
+.no-resultados h3 {
   color: #334c71;
-  font-size: 2rem;
-  margin: 10px 0 5px 0;
-
+  font-family: "Instrument Serif", serif;
+  font-size: 24px;
+  margin-bottom: 10px;
 }
 
-.vaso2 p {
-  font-family: "Instrument Serif";
-  color: #334c71;
-  font-size: 1rem;
-  margin: 10px 0 5px 0;
-
+.no-resultados p {
+  color: #666;
+  font-size: 16px;
 }
 
 
-.vaso3 {
-  overflow: hidden;
-  text-align: center;
-  transition: transform 0.2s;
+@media (max-width: 1024px) {
+  #accesorios {
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+  }
 }
 
-.vaso3:hover {
-  transform: scale(1.05);
+@media (max-width: 768px) {
+  .filtros {
+    flex-direction: column;
+  }
+
+  .buscador,
+  .categoria {
+    min-width: 100%;
+  }
+
+  #contenido {
+    padding-top: 180px;
+  }
+
+  #accesorios {
+    grid-template-columns: 1fr;
+  }
+
+  .vaso1 h2, .vaso2 h2, .vaso3 h2,
+  .jarra1 h2, .jarra2 h2, .jarra3 h2,
+  .copa1 h2, .copa2 h2, .copa3 h2,
+  .posavasos1 h2, .posavasos2 h2, .posavasos3 h2 {
+    font-size: 1.5rem;
+  }
 }
-
-
-.vaso3 img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.vaso3 h2 {
-  font-family: "Instrument Serif";
-  color: #334c71;
-  font-size: 2rem;
-  margin: 10px 0 5px 0;
-
-}
-
-.vaso3 p {
-  font-family: "Instrument Serif";
-  color: #334c71;
-  font-size: 1rem;
-  margin: 10px 0 5px 0;
-
-}
-
-
-/*-----------------------JARRAS-----------------------*/
-
-
-.jarra1 {
-  overflow: hidden;
-  text-align: center;
-  transition: transform 0.2s;
-}
-
-.jarra1:hover {
-  transform: scale(1.05);
-}
-
-
-.jarra1 img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.jarra1 h2 {
-  font-family: "Instrument Serif";
-  color: #334c71;
-  font-size: 2rem;
-  margin: 10px 0 5px 0;
-
-}
-
-.jarra1 p {
-  font-family: "Instrument Serif";
-  color: #334c71;
-  font-size: 1rem;
-  margin: 10px 0 5px 0;
-
-}
-
-
-.jarra2 {
-  overflow: hidden;
-  text-align: center;
-  transition: transform 0.2s;
-}
-
-.jarra2:hover {
-  transform: scale(1.05);
-}
-
-
-.jarra2 img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.jarra2 h2 {
-  font-family: "Instrument Serif";
-  color: #334c71;
-  font-size: 2rem;
-  margin: 10px 0 5px 0;
-
-}
-
-
-.jarra2 p {
-  font-family: "Instrument Serif";
-  color: #334c71;
-  font-size: 1rem;
-  margin: 10px 0 5px 0;
-
-}
-
-
-.jarra3 {
-  overflow: hidden;
-  text-align: center;
-  transition: transform 0.2s;
-}
-
-.jarra3:hover {
-  transform: scale(1.05);
-}
-
-
-.jarra3 img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.jarra3 h2 {
-  font-family: "Instrument Serif";
-  color: #334c71;
-  font-size: 2rem;
-  margin: 10px 0 5px 0;
-
-}
-
-
-.jarra3 p {
-  font-family: "Instrument Serif";
-  color: #334c71;
-  font-size: 1rem;
-  margin: 10px 0 5px 0;
-
-}
-
-
-/*-----------------------COPAS-----------------------*/
-
-
-.copa1 {
-  overflow: hidden;
-  text-align: center;
-  transition: transform 0.2s;
-}
-
-.copa1:hover {
-  transform: scale(1.05);
-}
-
-
-.copa1 img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.copa1 h2 {
-  font-family: "Instrument Serif";
-  color: #334c71;
-  font-size: 2rem;
-  margin: 10px 0 5px 0;
-
-}
-
-
-.copa1 p {
-  font-family: "Instrument Serif";
-  color: #334c71;
-  font-size: 1rem;
-  margin: 10px 0 5px 0;
-
-}
-
-
-.copa2 {
-  overflow: hidden;
-  text-align: center;
-  transition: transform 0.2s;
-}
-
-.copa2:hover {
-  transform: scale(1.05);
-}
-
-
-.copa2 img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.copa2 h2 {
-  font-family: "Instrument Serif";
-  color: #334c71;
-  font-size: 2rem;
-  margin: 10px 0 5px 0;
-
-}
-
-.copa2 p {
-  font-family: "Instrument Serif";
-  color: #334c71;
-  font-size: 1rem;
-  margin: 10px 0 5px 0;
-
-}
-
-.copa3 {
-  overflow: hidden;
-  text-align: center;
-  transition: transform 0.2s;
-}
-
-.copa3:hover {
-  transform: scale(1.05);
-}
-
-
-.copa3 img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.copa3 h2 {
-  font-family: "Instrument Serif";
-  color: #334c71;
-  font-size: 2rem;
-  margin: 10px 0 5px 0;
-
-}
-
-
-.copa3 p {
-  font-family: "Instrument Serif";
-  color: #334c71;
-  font-size: 1rem;
-  margin: 10px 0 5px 0;
-
-}
-
-/*-----------------------POSAVASOS-----------------------*/
-
-
-.posavasos1 {
-  overflow: hidden;
-  text-align: center;
-  transition: transform 0.2s;
-}
-
-.posavasos1:hover {
-  transform: scale(1.05);
-}
-
-
-.posavasos1 img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.posavasos1 h2 {
-  font-family: "Instrument Serif";
-  color: #334c71;
-  font-size: 2rem;
-  margin: 10px 0 5px 0;
-
-}
-
-
-.posavasos1 p {
-  font-family: "Instrument Serif";
-  color: #334c71;
-  font-size: 1rem;
-  margin: 10px 0 5px 0;
-
-}
-
-
-.posavasos2 {
-  overflow: hidden;
-  text-align: center;
-  transition: transform 0.2s;
-}
-
-.posavasos2:hover {
-  transform: scale(1.05);
-}
-
-
-.posavasos2 img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.posavasos2 h2 {
-  font-family: "Instrument Serif";
-  color: #334c71;
-  font-size: 2rem;
-  margin: 10px 0 5px 0;
-
-}
-
-.posavasos2 p {
-  font-family: "Instrument Serif";
-  color: #334c71;
-  font-size: 1rem;
-  margin: 10px 0 5px 0;
-
-}
-
-
-.posavasos3 {
-  overflow: hidden;
-  text-align: center;
-  transition: transform 0.2s;
-}
-
-.posavasos3:hover {
-  transform: scale(1.05);
-}
-
-
-.posavasos3 img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.posavasos3 h2 {
-  font-family: "Instrument Serif";
-  color: #334c71;
-  font-size: 2rem;
-  margin: 10px 0 5px 0;
-}
-
-.posavasos3 p {
-  font-family: "Instrument Serif";
-  color: #334c71;
-  font-size: 1rem;
-  margin: 10px 0 5px 0;
-
-}
-
