@@ -11,7 +11,7 @@
   </div>
 
   <img class="logoanimacion" src="assets/images/Voll-Dommi.png"/>
-  <img class="botellin" src="assets/images/clasicav2.png"/>
+  <img class="botellin" [src]="plantillaSeleccionada.imagen" [alt]="plantillaSeleccionada.nombreCerveza"/>
 
   <div class="texto izquierda">
     <h2>Hace ya muchos años,</h2>
@@ -28,7 +28,7 @@
   </div>
 
   <div class="texto derecha">
-    <h2>Voll - Dommi Original</h2>
+    <h2>{{plantillaSeleccionada.nombreCerveza}}</h2>
     Una cerveza equilibrada y refrescante, con un sabor suave y maltoso que celebra la tradición cervecera. Su aroma
     limpio y cuerpo ligero la convierten en la elección perfecta para cualquier ocasión, ideal para quienes buscan
     una experiencia auténtica y confiable en cada sorbo.

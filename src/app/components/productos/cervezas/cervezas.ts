@@ -3,11 +3,21 @@ import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
+interface Cerveza {
+  id: string;
+  nombre: string;
+  imagen: string;
+  categoria: string;
+  clase: string;
+  ruta?: string;
+}
+
 @Component({
   selector: 'app-cervezas',
   imports: [RouterLink, CommonModule, FormsModule],
   templateUrl: './cervezas.html',
   styleUrl: './cervezas.css',
+  standalone: true
 })
 export class Cervezas implements OnInit {
 
@@ -18,25 +28,28 @@ export class Cervezas implements OnInit {
   // Array de cervezas con toda la información
   cervezas = [
     {
+      id: '1',
       nombre: 'Voll - Dommi Original',
       categoria: 'original',
       clase: 'clasica',
       imagen: 'assets/images/clasica.png',
-      ruta: '/clasica'
+      ruta: '/clasica/1'
     },
     {
+      id: '2',
       nombre: 'Voll - Dommi Lemon Twist',
       categoria: 'original',
       clase: 'limon',
       imagen: 'assets/images/limon.png',
-      ruta: null
+      ruta: '/clasica/2'
     },
     {
+      id: '3',
       nombre: 'Voll - Dommi Tostada',
       categoria: 'original',
       clase: 'tostada',
       imagen: 'assets/images/tostada.png',
-      ruta: null
+      ruta: '/clasica/3'
     },
     {
       nombre: 'Voll - Dommi Tropic',

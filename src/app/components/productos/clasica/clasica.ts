@@ -1,10 +1,13 @@
-import { Component } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router, RouterLink} from '@angular/router';
 import {UserAuth} from '../../../authz/userAuth/user-auth';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Producto } from '../../../models/producto';
+import { Plantilla } from '../../../models/plantilla'
 import { Carrito } from '../../../services/carrito';
+import {Catalogo} from '../../../pages/catalogo/catalogo';
+import {CervezaService} from '../../../models/CervezasService';
 
 @Component({
   selector: 'app-clasica',
@@ -13,19 +16,22 @@ import { Carrito } from '../../../services/carrito';
   templateUrl: './clasica.html',
   styleUrls: ['./clasica.css'],
 })
-export class Clasica {
+export class Clasica implements OnInit {
+  // @ts-ignore
+  plantilla = this.plantillaSeleccionada
+
   productos: Producto[] = [
     {
       id: '1',
-      nombre: 'Voll - Dommi Original Pack (6 x33cl Latas)',
-      precio: 8.70,
       imagen: 'assets/images/clasica.png',
+      nombre: 'Pack (6 x33cl Latas)',
+      precio: 8.70,
     },
     {
       id: '2',
-      nombre: 'Caja (12 x25cl Botellas)',
-      precio: 12.70,
       imagen: 'assets/images/clasica.png',
+      nombre: 'Caja (12 x25cl Botellas)',
+      precio: 12.70
     }
   ];
 
@@ -37,8 +43,25 @@ export class Clasica {
   constructor(
     private authService: UserAuth,
     private router: Router,
-    private carrito: Carrito
+    private route: ActivatedRoute,
+    private carrito: Carrito,
+    private cervezaService: CervezaService
   ) {}
+
+  plantillaSeleccionada!: Plantilla;
+
+  ngOnInit() {
+    this.route.params.subscribe(params => {
+      const id = params['id'];
+
+      // ✅ Obtiene la cerveza del servicio por ID
+      const plantilla = this.cervezaService.obtenerCervezaPorId(id);
+
+      if (plantilla) {
+        this.plantillaSeleccionada = plantilla;
+      }
+    });
+  }
 
   // Verificar si está logeado
   verificarYAnadir(): void {
