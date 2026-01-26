@@ -1,60 +1,121 @@
-<div id="navbar"></div>
 <div class="container">
 
-  <div class="listaProductos">
-    <div class="itemProductos">
-      <img src="assets/images/clasica.png" alt="Producto 1">
-      <div class="productoInfo">
-        <h3>Voll-Dommi Original (Pack 6 x 33cl)</h3>
-        <p class="precio">5,22 €</p>
-      </div>
-      <div class="cantidad">
-        <button class="botonCantidad">−</button>
-        <span>x05</span>
-        <button class="botonCantidad">+</button>
-      </div>
-    </div>
 
-    <div class="itemProductos">
-      <img src="assets/images/vaso1.png" alt="Producto 2">
+  <div class="listaProductos">
+
+    <div class="itemProductos" *ngFor="let item of items">
+      <img [src]="item.producto.imagen" [alt]="item.producto.nombre">
+
       <div class="productoInfo">
-        <h3>Vaso gastronómico Voll-Dommi 33cl (6 u.)</h3>
-        <p class="precio">8,16 €</p>
+        <h3>{{ item.producto.nombre }}</h3>
+        <p class="precio">
+          {{ item.producto.precio | number:'1.2-2' }} €
+        </p>
       </div>
+
+
       <div class="cantidad">
-        <button class="botonCantidad">−</button>
-        <span>x01</span>
-        <button class="botonCantidad">+</button>
+        <button class="botonCantidad" (click)="restarCantidad(item)">−</button>
+        <span>x{{ item.cantidad }}</span>
+        <button class="botonCantidad" (click)="sumarCantidad(item)">+</button>
+      </div>
+      <div class="borrar">
+        <button class="borrar" (click)="eliminar(item)">X</button>
       </div>
     </div>
 
     <div class="back">
-      <a href="catalogo.html">
+      <a routerLink="/cerveza">
         <span>← Seguir comprando</span>
       </a>
     </div>
-  </div>
 
+  </div>
 
   <div class="carritoResumen">
     <h2>Resumen del carrito</h2>
+
     <div class="sumaProductos">
       <span>Total productos</span>
-      <span>34,26 €</span>
+      <span>{{ totalProductos | number:'1.2-2' }} €</span>
     </div>
+
     <div class="sumaProductos">
       <span>Total descuentos</span>
       <span>0,00 €</span>
     </div>
+
     <div class="sumaProductos">
       <span>Gastos de envío</span>
       <span>0,00 €</span>
     </div>
+
     <div class="sumaProductos total">
       <strong>Total pedido</strong>
-      <strong>34,26 €</strong>
+      <strong>{{ totalPedido | number:'1.2-2' }} €</strong>
     </div>
-    <button class="botonCheckout">Siguiente: Envío</button>
-    <p class="descuento">¿Tienes un código de descuento?</p>
+
+    <button
+      class="botonCheckout"
+      [disabled]="items.length === 0"
+      (click)="abrirPopup()">
+      Confirmar pago
+    </button>
+  </div>
+  <div class="modal-fondo" *ngIf="mostrarPopup">
+    <div class="modal">
+      <h2>Confirmar compra</h2>
+      <form>
+        <input
+          type="text"
+          placeholder="Nombre"
+          [(ngModel)]="nombre"
+          name="nombre"
+          required
+        >
+
+        <input
+          type="email"
+          placeholder="Email"
+          [(ngModel)]="email"
+          name="email"
+          required
+        >
+
+        <div class="acciones">
+          <button type="button" (click)="cerrarPopup()">Cancelar</button>
+          <button type="button" (click)="confirmarCompra()">Confirmar</button>
+        </div>
+      </form>
+    </div>
+</div>
+  <div class="overlay" *ngIf="mostrarPopup">
+    <div class="popup">
+
+      <h2>Confirmar compra</h2>
+
+      <form>
+        <label>
+          Nombre
+          <input type="text" [(ngModel)]="nombre" name="nombre">
+        </label>
+
+        <label>
+          Email
+          <input type="email" [(ngModel)]="email" name="email">
+        </label>
+
+        <div class="acciones">
+          <button type="button" (click)="confirmarCompra()">
+            Confirmar compra
+          </button>
+
+          <button type="button" class="cancelar" (click)="cerrarPopup()">
+            Cancelar
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
+

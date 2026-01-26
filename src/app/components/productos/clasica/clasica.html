@@ -33,32 +33,29 @@
     limpio y cuerpo ligero la convierten en la elección perfecta para cualquier ocasión, ideal para quienes buscan
     una experiencia auténtica y confiable en cada sorbo.
     <div class="precios">
-      <form>
         <table>
           <tr>
             <td>
-              <input type="radio" name="precio" id="latas">
+              <input type="radio" name="tipo" id="latas" [(ngModel)]="tipoSeleccionado" value="1">
               <label for="latas">Pack (6 x33cl Latas)</label>
             </td>
           </tr>
 
           <tr>
             <td>
-              <input type="radio" name="precio" id="botellas">
+              <input type="radio" name="tipo" id="botellas" [(ngModel)]="tipoSeleccionado" value="2">
               <label for="botellas">Caja (12 x25cl Botellas)</label>
             </td>
           </tr>
-
           <tr>
             <td id="añadirCarrito">
-              <input type="number" value="1" min="1" id="carritoCompra">
-              <label for="carritoCompra">
-                <button class="añadir">Añadir a la cesta</button>
-              </label>
+              <div class="cantidad-boton">
+                <input type="number" [(ngModel)]="cantidad" min="1" class="cantidad-input"/>
+                <button type="button" class="añadir" (click)="agregarAlCarrito()">Añadir a la cesta</button>
+              </div>
             </td>
           </tr>
         </table>
-      </form>
     </div>
   </div>
 </div>

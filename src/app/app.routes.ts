@@ -6,7 +6,7 @@ import {Clasica} from './components/productos/clasica/clasica';
 import {Ropa} from './components/productos/ropa/ropa';
 import {Vaso} from './components/productos/vaso/vaso';
 import {Catalogo} from './pages/catalogo/catalogo';
-import {Carrito} from './pages/carrito/carrito';
+import {CarritoComponent} from './pages/carrito/carrito';
 import {Contacto} from './pages/contacto/contacto';
 import {Condiciones} from './pages/condiciones/condiciones';
 import {Signin} from './authz/signin/signin';
@@ -22,7 +22,7 @@ export const routes: Routes = [
   {path: 'ropa', component: Ropa},
   {path: 'vaso', component: Vaso},
   {path: 'catalogo', component: Catalogo},
-  {path: 'carrito', component: Carrito},
+  {path: 'carrito', component: CarritoComponent},
   {path: 'footer', component: FooterComponent},
   { path: '', component: Inicio },
   {path: '', component: Inicio},
