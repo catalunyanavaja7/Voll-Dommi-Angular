@@ -5,7 +5,6 @@
     </video>
   </aside>
 
-
   <div id="formulario">
     <table id="table">
       <tr>
@@ -23,52 +22,52 @@
       </tr>
     </table>
 
-      <form (ngSubmit)="registrar()">
-        <input
+    <form (ngSubmit)="registrar()">
+      <input
         type="text"
         [(ngModel)]="nombre"
         name="nombre"
         placeholder="Ingrese su nombre"
         required
-        >
+      >
 
-        <input
-          type="text"
-          name="apellido"
-          placeholder="Ingrese su apellido"
-        >
+      <input
+        type="text"
+        [(ngModel)]="apellido"
+        name="apellido"
+        placeholder="Ingrese su apellido"
+      >
 
-        <input
-          type="email"
-          [(ngModel)]="email"
-          name="correo"
-          placeholder="Correo electronico"
-          required>
+      <input
+        type="email"
+        [(ngModel)]="email"
+        name="correo"
+        placeholder="Correo electronico"
+        required
+      >
 
-        <input
-          type="password"
-          [(ngModel)]="password"
-          name="contraseña"
-          placeholder="Contraseña (Minimo 5 caracteres)"
-          required>
+      <input
+        type="password"
+        [(ngModel)]="password"
+        name="contraseña"
+        placeholder="Contraseña (Minimo 6 caracteres)"
+        required
+      >
 
-        <input
-          type="password"
-          [(ngModel)]="confirmarPassword"
-          name="contraseña"
-          placeholder="Repita la contraseña"
-          required>
+      <input
+        type="password"
+        [(ngModel)]="confirmarPassword"
+        name="confirmarContraseña"
+        placeholder="Repita la contraseña"
+        required
+      >
 
-
-        <tr>
-          <td>
-            <button id="registrarse">Registrarse</button>
-          </td>
-        </tr>
-      </form>
-
-
-
+      <tr>
+        <td>
+          <button id="registrarse">Registrarse</button>
+        </td>
+      </tr>
+    </form>
   </div>
 
   <aside class="AD">
@@ -76,5 +75,4 @@
       <source src="assets/video/anuncioAmarillo.mp4">
     </video>
   </aside>
-
 </article>

@@ -106,7 +106,7 @@ export class Cervezas implements OnInit {
   // Metodo que filtra las cervezas
   filtrarCervezas() {
     this.cervezasFiltradas = this.cervezas.filter(cerveza => {
-      // Filtro por texto de búsqueda (busca en el nombre)
+      // Filtro por texto de búsqueda
       const coincideTexto = cerveza.nombre
         .toLowerCase()
         .includes(this.searchText.toLowerCase());

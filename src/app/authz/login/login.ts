@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import {Router, RouterLink} from '@angular/router';
-import {CommonModule} from '@angular/common';
+import { Router, RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
 import { UserAuth } from '../userAuth/user-auth';
-import {FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
-  imports: [RouterLink,CommonModule, FormsModule],
+  imports: [RouterLink, CommonModule, FormsModule],
   templateUrl: './login.html',
   styleUrl: './login.css',
   standalone: true
@@ -18,8 +18,7 @@ export class Login {
   constructor(
     private authService: UserAuth,
     private router: Router
-  ) {
-  }
+  ) {}
 
   login(): void {
     if (!this.email || !this.password) {
@@ -27,6 +26,7 @@ export class Login {
       return;
     }
 
+    // peticion HTTP al backend
     this.authService.login(this.email, this.password);
   }
 }
