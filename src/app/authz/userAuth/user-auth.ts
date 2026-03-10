@@ -1,94 +1,87 @@
 import { Injectable } from '@angular/core';
-import {Router} from '@angular/router';
-import {Login} from '../login/login';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { environment } from '../../../enviroments/environment';
 
 interface Usuario {
-  nombre: string;
+  uid: string;
+  nom: string;
+  cognoms: string;
   email: string;
-  password: string;
+  emailVerificat: boolean;
+  createdAt: string;
+  updatedAt: string;
 }
-
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserAuth {
-  private readonly USUARIO_KEY = "usuario_registrado";
-  private readonly SESION_KEY = 'sesion_activa';
+  private apiUrl = environment.apiUrl;
 
-  constructor(private router: Router) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router
+  ) {}
 
-  // @ts-ignore
-  registrar(nombre: string, email: string, password: string): boolean {
-    // Verificar si ya existe un usuario
-    if (this.existeUsuario()) {
-      alert('Ya existe un usuario registrado');
-      return false;
-    }
+  // Registro
+  registrar(nom: string, cognoms: string, email: string, password: string): void {
+    const body = { nom, cognoms, email, password };
 
-    const usuario: Usuario = { nombre, email, password };
-    sessionStorage.setItem(this.USUARIO_KEY, JSON.stringify(usuario));
-    alert('Usuario registrado exitosamente');
-    return true;
+    this.http.post<any>(`${this.apiUrl}/auth/register`, body).subscribe({
+      next: (res) => {
+        // Guardar token i datos del usuario
+        sessionStorage.setItem('token', res.token);
+        sessionStorage.setItem('usuari', JSON.stringify(res.user));
+        alert('Usuari registrat correctament! Comprova el teu correu per verificar el compte.');
+        this.router.navigate(['/sesion']);
+      },
+      error: (err) => {
+        const missatge = err.error?.message || 'Error en el registre. Torna-ho a intentar.';
+        alert(missatge);
+      }
+    });
   }
 
-  // Iniciar sesión
+  // Login
+  login(email: string, password: string): void {
+    const body = { email, password };
 
-  // @ts-ignore
-  login(email: string, password: string): boolean {
-    const usuarioGuardado = this.obtenerUsuarioRegistrado();
-
-    if (!usuarioGuardado) {
-      alert('No hay ningun usuario registrado');
-      return false;
-    }
-
-    if (usuarioGuardado.email === email && usuarioGuardado.password === password) {
-      // Guardar sesion activa
-      sessionStorage.setItem(this.SESION_KEY, 'true');
-      alert('Inicio de sesion exitoso');
-      this.router.navigate([''])
-      return true;
-    } else {
-      alert('Email o contraseña incorrectos')
-      return false;
-    }
+    this.http.post<any>(`${this.apiUrl}/auth/login`, body).subscribe({
+      next: (res) => {
+        // Guardar token i datos del usuario
+        sessionStorage.setItem('token', res.token);
+        sessionStorage.setItem('usuari', JSON.stringify(res.user));
+        alert('Inici de sessió correcte!');
+        this.router.navigate(['']);
+      },
+      error: (err) => {
+        const missatge = err.error?.message || 'Email o contrasenya incorrectes.';
+        alert(missatge);
+      }
+    });
   }
 
-  // Cerrar sesion
-
+  //  Logout
   logout(): void {
-    sessionStorage.removeItem(this.SESION_KEY);
-    this.router.navigate(['/sesion'])
+    sessionStorage.removeItem('token');
+    sessionStorage.removeItem('usuari');
+    this.router.navigate(['/sesion']);
   }
 
-  // Verificar si hay sesion activa
-
+  // Estat sessió
   estaLogueado(): boolean {
-    return sessionStorage.getItem(this.SESION_KEY) === 'true';
+    return sessionStorage.getItem('token') !== null;
   }
 
-  // Obtener usuario logueado
+  // Obtenir token
+  getToken(): string | null {
+    return sessionStorage.getItem('token');
+  }
 
+  // Obtenir usuari guardat localment
   obtenerUsuarioLogueado(): Usuario | null {
-    if (this.estaLogueado()) {
-      return this.obtenerUsuarioRegistrado()
-    }
-    return null;
+    const usuari = sessionStorage.getItem('usuari');
+    return usuari ? JSON.parse(usuari) : null;
   }
-
-  // Verificar si existe un usuario registrado
-
-  existeUsuario(): boolean {
-    return sessionStorage.getItem(this.USUARIO_KEY) !== null;
-  }
-
-  // Obtener usuario registrado
-
-  private obtenerUsuarioRegistrado(): Usuario | null {
-    const usuario = sessionStorage.getItem(this.USUARIO_KEY);
-    return usuario ? JSON.parse(usuario) : null;
-  }
-
-
 }

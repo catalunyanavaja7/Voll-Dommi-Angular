@@ -122,6 +122,7 @@ table, td {
 }
 
 /* Animaciones */
+
 @keyframes aparecer {
   from {
     transform: scale(0.5);
