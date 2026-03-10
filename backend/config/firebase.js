@@ -1,14 +1,3 @@
-// config/firebase.js
-// ─────────────────────────────────────────────────────────────────────────────
-// Inicialitza Firebase Admin SDK amb Realtime Database.
-//
-// SETUP:
-//  1. Ves a Firebase Console → Configuració → Comptes de servei
-//  2. Clica "Genera clau privada nova" → es descarrega un .json
-//  3. Anomena'l serviceAccountKey.json i posa'l a config/serviceAccountKey.json
-//  4. Afegeix config/serviceAccountKey.json al .gitignore (MAI pujar al repo!)
-// ─────────────────────────────────────────────────────────────────────────────
-
 const admin = require('firebase-admin');
 const path  = require('path');
 require('dotenv').config();
