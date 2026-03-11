@@ -22,11 +22,12 @@ export class UserAuth {
   constructor(
     private http: HttpClient,
     private router: Router
-  ) {}
+  ) {
+  }
 
   // Registro
   registrar(nom: string, cognoms: string, email: string, password: string): void {
-    const body = { nom, cognoms, email, password };
+    const body = {nom, cognoms, email, password};
 
     this.http.post<any>(`${this.apiUrl}/auth/register`, body).subscribe({
       next: (res) => {
@@ -45,7 +46,7 @@ export class UserAuth {
 
   // Login
   login(email: string, password: string): void {
-    const body = { email, password };
+    const body = {email, password};
 
     this.http.post<any>(`${this.apiUrl}/auth/login`, body).subscribe({
       next: (res) => {
@@ -83,5 +84,26 @@ export class UserAuth {
   obtenerUsuarioLogueado(): Usuario | null {
     const usuari = sessionStorage.getItem('usuari');
     return usuari ? JSON.parse(usuari) : null;
+  }
+
+  //Simulación
+  recuperarPassword(email: string): { exito: boolean, password?: string } {
+    console.log('📧 [SIMULACIÓN] Enviando email de recuperación...');
+    console.log(`   Destinatario: ${email}`);
+    console.log(`   Asunto: Recuperación de contraseña`);
+
+    const usuarioMock = sessionStorage.getItem('usuari');
+
+    if (usuarioMock) {
+      const usuario = JSON.parse(usuarioMock);
+      if (usuario.email === email) {
+        return {
+          exito: true,
+          password: '******'
+        };
+      }
+    }
+
+    return { exito: false };
   }
 }

@@ -44,11 +44,37 @@
           <button id="iniciarSesion">Acceder</button>
         </td>
       </tr>
+      <tr>
+        <td>
+          <button type="button" id="olvidarPassword" (click)="mostrarResetPassword()">
+            ¿Has olvidado la contraseña?
+          </button>
+        </td>
+      </tr>
     </form>
+    <div *ngIf="mostrarModalReset" class="modal-overlay" (click)="cerrarModal()">
+      <div class="modal-content" (click)="$event.stopPropagation()">
+        <h2>Restablecer Contraseña</h2>
+        <p>Introduce tu email y te enviaremos tu contraseña</p>
 
+        <input
+          type="email"
+          [(ngModel)]="emailReset"
+          placeholder="Tu correo electrónico"
+          id="inputReset"
+        >
 
+        <div class="modal-buttons">
+          <button type="button" (click)="resetPassword()" id="btnEnviar">
+            Enviar
+          </button>
+          <button type="button" (click)="cerrarModal()" id="btnCancelar">
+            Cancelar
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
-
   <aside class="AD">
     <video autoplay muted loop playsinline id="imagenDerecha">
       <source src="assets/video/anuncioAmarillo.mp4">

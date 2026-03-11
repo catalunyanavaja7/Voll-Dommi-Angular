@@ -1,8 +1,5 @@
 <div class="container">
-
-
   <div class="listaProductos">
-
     <div class="itemProductos" *ngFor="let item of items">
       <img [src]="item.producto.imagen" [alt]="item.producto.nombre">
 
@@ -25,7 +22,7 @@
     </div>
 
     <div class="back">
-      <a routerLink="/cerveza">
+      <a routerLink="/catalogo">
         <span>← Seguir comprando</span>
       </a>
     </div>
@@ -68,17 +65,17 @@
       <form>
         <input
           type="text"
-          placeholder="Nombre"
-          [(ngModel)]="nombre"
-          name="nombre"
+          placeholder="Num. Tarjeta"
+          [(ngModel)]="numTarjeta"
+          name="numTarjeta"
           required
         >
 
         <input
-          type="email"
-          placeholder="Email"
-          [(ngModel)]="email"
-          name="email"
+          type="text"
+          placeholder="CVV"
+          [(ngModel)]="cvv"
+          name="CVV"
           required
         >
 
@@ -96,13 +93,13 @@
 
       <form>
         <label>
-          Nombre
-          <input type="text" [(ngModel)]="nombre" name="nombre">
+          Num. Tarjeta
+          <input type="text" [(ngModel)]="numTarjeta" name="numTarjeta">
         </label>
 
         <label>
-          Email
-          <input type="email" [(ngModel)]="email" name="email">
+          CVV
+          <input type="text" [(ngModel)]="cvv" name="CVV">
         </label>
 
         <div class="acciones">

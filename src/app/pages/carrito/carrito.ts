@@ -21,8 +21,8 @@ export class CarritoComponent implements OnInit {
   mostrarPopup: boolean = false;
 
   //campos del formulario
-  nombre: string = '';
-  email: string = '';
+  numTarjeta: string = '';
+  cvv: string = '';
 
   constructor(private carritoService: CarritoService) {
     this.items = this.carritoService.obtenerItems();
@@ -31,8 +31,8 @@ export class CarritoComponent implements OnInit {
   confirmarCompra() {
     this.carritoService.vaciarCarrito();
     this.items = [];
-    this.totalProductos = 0;         // 🔹 Actualizamos el total manualmente
-    this.totalPedido = 0;         // 🔹 Actualizamos el total manualmente
+    this.totalProductos = 0;
+    this.totalPedido = 0;
     this.mostrarPopup = false;
   }
 
