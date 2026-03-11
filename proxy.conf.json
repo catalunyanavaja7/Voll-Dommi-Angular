@@ -1,0 +1,11 @@
+{
+  "/api/quote": {
+    "target": "https://api.quotable.io",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/api/quote": ""
+    }
+  }
+}
