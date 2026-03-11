@@ -1,4 +1,11 @@
-
+@if (quote) {
+  <div id="fraseDelDia" [class.visible]="isFraseVisible">
+    <div id="quoteContent">
+      <p id="quoteText">"{{ quote.content }}"</p>
+      <p id="quoteAuthor">- Jordi Cordomí</p>
+    </div>
+  </div>
+}
 <article>
   <div id="anuncio1">
     <video autoplay muted loop playsinline id="video-fondo">
