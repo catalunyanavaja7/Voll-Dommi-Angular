@@ -22,16 +22,14 @@ export class UserAuth {
   constructor(
     private http: HttpClient,
     private router: Router
-  ) {
-  }
+  ) {}
 
-  // Registro
+  // Registre
   registrar(nom: string, cognoms: string, email: string, password: string): void {
-    const body = {nom, cognoms, email, password};
+    const body = { nom, cognoms, email, password };
 
     this.http.post<any>(`${this.apiUrl}/auth/register`, body).subscribe({
       next: (res) => {
-        // Guardar token i datos del usuario
         sessionStorage.setItem('token', res.token);
         sessionStorage.setItem('usuari', JSON.stringify(res.user));
         alert('Usuari registrat correctament! Comprova el teu correu per verificar el compte.');
@@ -46,11 +44,10 @@ export class UserAuth {
 
   // Login
   login(email: string, password: string): void {
-    const body = {email, password};
+    const body = { email, password };
 
     this.http.post<any>(`${this.apiUrl}/auth/login`, body).subscribe({
       next: (res) => {
-        // Guardar token i datos del usuario
         sessionStorage.setItem('token', res.token);
         sessionStorage.setItem('usuari', JSON.stringify(res.user));
         alert('Inici de sessió correcte!');
@@ -63,14 +60,29 @@ export class UserAuth {
     });
   }
 
-  //  Logout
+  // Recuperar contrasenya — crida al backend
+  recuperarPassword(email: string): void {
+    const body = { email };
+
+    this.http.post<any>(`${this.apiUrl}/auth/reset-password`, body).subscribe({
+      next: () => {
+        alert('Rebras una nova contrasenya en uns minuts. Revisa també el correu no desitjat.');
+      },
+      error: (err) => {
+        const missatge = err.error?.message || 'Error en enviar el correu. Torna-ho a intentar.';
+        alert(missatge);
+      }
+    });
+  }
+
+  //Logout
   logout(): void {
     sessionStorage.removeItem('token');
     sessionStorage.removeItem('usuari');
     this.router.navigate(['/sesion']);
   }
 
-  // Estat sessió
+  //Estat sessio
   estaLogueado(): boolean {
     return sessionStorage.getItem('token') !== null;
   }
@@ -80,30 +92,9 @@ export class UserAuth {
     return sessionStorage.getItem('token');
   }
 
-  // Obtenir usuari guardat localment
+  //Obtenir usuari guardat localment
   obtenerUsuarioLogueado(): Usuario | null {
     const usuari = sessionStorage.getItem('usuari');
     return usuari ? JSON.parse(usuari) : null;
-  }
-
-  //Simulación
-  recuperarPassword(email: string): { exito: boolean, password?: string } {
-    console.log('📧 [SIMULACIÓN] Enviando email de recuperación...');
-    console.log(`   Destinatario: ${email}`);
-    console.log(`   Asunto: Recuperación de contraseña`);
-
-    const usuarioMock = sessionStorage.getItem('usuari');
-
-    if (usuarioMock) {
-      const usuario = JSON.parse(usuarioMock);
-      if (usuario.email === email) {
-        return {
-          exito: true,
-          password: '******'
-        };
-      }
-    }
-
-    return { exito: false };
   }
 }
