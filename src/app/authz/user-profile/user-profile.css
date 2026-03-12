@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oswald:wght@200..700&display=swap');
+
+article {
+  margin-top: 200px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-family: "Oswald";
+  font-size: 18px;
+}
+
+#principal {
+  width: 75%;
+  display: flex;
+  flex-direction: row;
+}
+
+#opcionesUser {
+  margin-left: 30px;
+  width: 76%;
+  height: 100%;
+  box-shadow: 1px 1px 10px lightgray;
+}
+
+#misDatos {
+  background-color: #334c71;
+  color: #f5ca54;
+  height: 50px;
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  align-items: center;
+  padding-left: 25px;
+
+}
+
+.ajustes {
+  display: flex;
+  flex-direction: row;
+  height: 170px;
+  padding-left: 45px;
+  border: 1px solid rgba(255,197,0,0.28);
+  background-color: rgba(255,197,0,0.28);
+  border-top: 0;
+}
+
+.titulo {
+  width: 30%;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  padding-bottom: 35px;
+}
+
+.contenido {
+  width: 70%;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  padding-bottom: 35px;
+}
+
+.nombre {
+  padding-top: 40px;
+}
+
+.correo {
+  padding-top: 10px;
+}
+
+#holaUser {
+  background-color: #334c71;
+  border-radius: 10px;
+  border: #999999 1px solid;
+  box-shadow: 1px 1px 10px lightgray;
+  color: white;
+  width: 325px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#imgUser {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#profilePic {
+  height: 90px;
+  width: 90px;
+  border-radius: 50px;
+}
+
+#textUser {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+strong {
+  color: #f5ca54;
+}
+
+
+
+
+
+

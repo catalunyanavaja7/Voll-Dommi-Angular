@@ -11,6 +11,7 @@ interface Usuario {
   emailVerificat: boolean;
   createdAt: string;
   updatedAt: string;
+  direccion: string;
 }
 
 @Injectable({

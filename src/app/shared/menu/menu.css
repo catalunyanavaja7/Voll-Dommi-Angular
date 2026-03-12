@@ -93,13 +93,14 @@ nav {
   font-family: "Oswald";
   font-weight: bold;
   position: relative;
-  transition: color 0.6s ease;
-  color: red;
+  transition: color 0.2s ease;
+  color: black;
   text-transform: uppercase;
 }
 
 .salir:hover {
   cursor: pointer;
+  color: red;
 }
 
 .textomenu {
@@ -159,6 +160,16 @@ nav {
 
 #navbar.shrink #izquierda {
   height: 2em;
+}
+
+#navbar.shrink .salir {
+  color: white;
+  transition-duration: 0.2s;
+}
+
+#navbar.shrink .salir:hover {
+  color: red;
+  transition-duration: 0.2s;
 }
 
 #navbar.shrink .textomenu {

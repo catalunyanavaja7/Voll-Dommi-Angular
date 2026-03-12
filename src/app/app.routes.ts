@@ -11,8 +11,9 @@ import {Contacto} from './pages/contacto/contacto';
 import {Condiciones} from './pages/condiciones/condiciones';
 import {Signin} from './authz/signin/signin';
 import {Login} from './authz/login/login';
-import { Inicio } from './pages/inicio/inicio';
-import { FooterComponent } from './shared/footer/footer';
+import {Inicio} from './pages/inicio/inicio';
+import {FooterComponent} from './shared/footer/footer';
+import {UserProfile} from './authz/user-profile/user-profile';
 
 export const routes: Routes = [
   {path: 'accesorios', component: Accesorios},
@@ -25,9 +26,10 @@ export const routes: Routes = [
   {path: 'vaso', component: Vaso},
   {path: 'carrito', component: CarritoComponent},
   {path: 'footer', component: FooterComponent},
-  { path: '', component: Inicio },
+  {path: '', component: Inicio},
   {path: 'contacto', component: Contacto},
   {path: 'condiciones', component: Condiciones},
   {path: 'sesion', component: Login},
-  {path: 'registro', component: Signin}
+  {path: 'registro', component: Signin},
+  {path: 'userProfile', component: UserProfile}
 ];

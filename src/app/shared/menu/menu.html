@@ -16,7 +16,7 @@
     <a class="textomenu carrito-link" routerLink="carrito">CARRITO</a>
 
     @if (authService.estaLogueado()) {
-      <a class="usuario-nombre">{{authService.obtenerUsuarioLogueado()?.nom}}</a>
+      <a class="usuario-nombre" routerLink="userProfile">{{authService.obtenerUsuarioLogueado()?.nom}}</a>
       <a class="salir" (click)="cerrarSesion()">SALIR</a>
     }
 

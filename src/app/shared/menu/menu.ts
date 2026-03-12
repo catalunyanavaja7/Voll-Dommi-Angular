@@ -1,14 +1,14 @@
 import {Component, HostListener, OnInit} from '@angular/core';
 import {CommonModule, NgClass} from '@angular/common';
 import {RouterLink} from "@angular/router";
-import { UserAuth } from '../../authz/userAuth/user-auth';
+import {UserAuth} from '../../authz/userAuth/user-auth';
 
 @Component({
-    selector: 'app-menu',
-    imports: [NgClass, RouterLink, CommonModule],
-    templateUrl: './menu.html',
-    styleUrl: './menu.css',
-    standalone: true
+  selector: 'app-menu',
+  imports: [NgClass, RouterLink, CommonModule],
+  templateUrl: './menu.html',
+  styleUrl: './menu.css',
+  standalone: true
 })
 export class Menu implements OnInit {
   isScrolled = false;
@@ -17,8 +17,8 @@ export class Menu implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('Usuario logueado:' , this.authService.obtenerUsuarioLogueado());
-    console.log('¿Esta logueado?: ',this.authService.estaLogueado());
+    console.log('Usuario logueado:', this.authService.obtenerUsuarioLogueado());
+    console.log('¿Esta logueado?: ', this.authService.estaLogueado());
 
   }
 
