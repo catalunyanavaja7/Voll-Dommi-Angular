@@ -1,24 +1,23 @@
-import { Component, HostListener, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { QuoteApiService, Quote } from '../../services/quote-api';
+import { NuevaApiService, Frase } from '../../services/nueva-api';
 
 @Component({
-    selector: 'app-inicio',
-    templateUrl: './inicio.html',
-    styleUrl: './inicio.css',
+  selector: 'app-inicio',
+  templateUrl: './inicio.html',
+  styleUrl: './inicio.css',
   standalone: true,
   imports: [CommonModule]
 })
+export class Inicio implements OnInit, AfterViewInit, OnDestroy {
 
-export class Inicio implements OnInit, OnDestroy {
-
-  quote: Quote | null = null;
+  quote: Frase | null = null;
   loadingQuote: boolean = true;
-  isFraseVisible = false;
   private quoteInterval: any;
 
   constructor(
-    private quoteApiService: QuoteApiService
+    private nuevaApiService: NuevaApiService,
+    private elementRef: ElementRef
   ) {}
 
   ngOnInit(): void {
@@ -30,21 +29,32 @@ export class Inicio implements OnInit, OnDestroy {
     clearInterval(this.quoteInterval);
   }
 
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    this.isFraseVisible = window.scrollY > 80;
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      const fraseElement = this.elementRef.nativeElement.querySelector('#fraseDelDia');
+      if (fraseElement) {
+        fraseElement.classList.add('visible');
+      }
+    }, 100);
   }
 
   loadQuote(): void {
     this.loadingQuote = true;
-    this.quoteApiService.getRandomQuote().subscribe({
+    this.nuevaApiService.getRandomQuote().subscribe({
       next: (data) => {
         this.quote = data;
         this.loadingQuote = false;
-        console.log('💭 Frase del día cargada:', data);
+        console.log('💭 Frase cargada desde MI API:', data);
+
+        setTimeout(() => {
+          const fraseElement = this.elementRef.nativeElement.querySelector('#fraseDelDia');
+          if (fraseElement) {
+            fraseElement.classList.add('visible');
+          }
+        }, 50);
       },
       error: (error) => {
-        console.error('Error al cargar frase:', error);
+        console.error('❌ Error:', error);
         this.loadingQuote = false;
       }
     });

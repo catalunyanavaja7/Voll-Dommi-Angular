@@ -1,8 +1,8 @@
 @if (quote) {
-  <div id="fraseDelDia" [class.visible]="isFraseVisible">
+  <div id="fraseDelDia">
     <div id="quoteContent">
       <p id="quoteText">"{{ quote.content }}"</p>
-      <p id="quoteAuthor">- Jordi Cordomí</p>
+      <p id="quoteAuthor">- {{ quote.author }}</p>
     </div>
   </div>
 }

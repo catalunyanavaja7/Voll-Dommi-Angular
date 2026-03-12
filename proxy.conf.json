@@ -1,6 +1,6 @@
 {
   "/api/quote": {
-    "target": "https://api.quotable.io",
+    "target": "https://apicunado.vercel.app/",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug",
