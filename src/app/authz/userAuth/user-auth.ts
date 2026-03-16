@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { environment } from '../../../enviroments/environment';
 
@@ -61,6 +61,26 @@ export class UserAuth {
     });
   }
 
+  // Actualitzar perfil — PUT /api/user/profile
+  actualizarPerfil(dades: { nom?: string; cognoms?: string; adreca?: string; telefon?: string }): void {
+    const token = this.getToken();
+    const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
+
+    this.http.put<any>(`${this.apiUrl}/user/profile`, dades, { headers }).subscribe({
+      next: (res) => {
+        // Actualitzar les dades locals amb les retornades pel backend
+        const usuariActual = this.obtenerUsuarioLogueado();
+        const usuariActualitzat = { ...usuariActual, ...res.user };
+        sessionStorage.setItem('usuari', JSON.stringify(usuariActualitzat));
+        alert('Dades actualitzades correctament.');
+      },
+      error: (err) => {
+        const missatge = err.error?.message || 'Error en actualitzar les dades.';
+        alert(missatge);
+      }
+    });
+  }
+
   // Recuperar contrasenya — crida al backend
   recuperarPassword(email: string): void {
     const body = { email };
@@ -76,14 +96,14 @@ export class UserAuth {
     });
   }
 
-  //Logout
+  // Logout
   logout(): void {
     sessionStorage.removeItem('token');
     sessionStorage.removeItem('usuari');
     this.router.navigate(['/sesion']);
   }
 
-  //Estat sessio
+  // Estat sessio
   estaLogueado(): boolean {
     return sessionStorage.getItem('token') !== null;
   }
@@ -93,7 +113,7 @@ export class UserAuth {
     return sessionStorage.getItem('token');
   }
 
-  //Obtenir usuari guardat localment
+  // Obtenir usuari guardat localment
   obtenerUsuarioLogueado(): Usuario | null {
     const usuari = sessionStorage.getItem('usuari');
     return usuari ? JSON.parse(usuari) : null;

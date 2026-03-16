@@ -20,6 +20,18 @@ article {
   width: 76%;
   height: 100%;
   box-shadow: 1px 1px 10px lightgray;
+  border-radius: 10px;
+}
+
+#izquierda {
+  width: 100%;
+  display: flex;
+}
+
+#derecha {
+  display: flex;
+  width: 100%;
+  justify-content: right;
 }
 
 #misDatos {
@@ -30,7 +42,30 @@ article {
   display: flex;
   align-items: center;
   padding-left: 25px;
+  padding-right: 12px;
+}
 
+.camposDatos {
+  background-color: white;
+  border-radius: 10px;
+  margin-top: 35px;
+  margin-right: 40px;
+}
+
+.final {
+  background-color: #334c71;
+  color: #f5ca54;
+  height: 50px;
+  border-radius: 0 0 10px 10px;
+  display: flex;
+  align-items: center;
+  padding-left: 25px;
+}
+
+.botonesEditar {
+  background-color: #334c71;
+  border: 0px solid #f5ca54;
+  color: #f5ca54;
 }
 
 .ajustes {
@@ -64,7 +99,7 @@ article {
 }
 
 .correo {
-  padding-top: 10px;
+  padding-top: 20px;
 }
 
 #holaUser {
@@ -104,9 +139,3 @@ article {
 strong {
   color: #f5ca54;
 }
-
-
-
-
-
-
