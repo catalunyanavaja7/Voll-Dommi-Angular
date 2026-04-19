@@ -8,6 +8,7 @@ import { Plantilla } from '../../../models/plantilla'
 import { Carrito } from '../../../services/carrito';
 import {Catalogo} from '../../../pages/catalogo/catalogo';
 import {CervezaService} from '../../../models/CervezasService';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-clasica',
@@ -45,7 +46,8 @@ export class Clasica implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private carrito: Carrito,
-    private cervezaService: CervezaService
+    private cervezaService: CervezaService,
+    private http: HttpClient
   ) {}
 
   plantillaSeleccionada!: Plantilla;
@@ -92,7 +94,22 @@ export class Clasica implements OnInit {
   agregarAlCarrito() {
     const producto = this.productos.find(p => p.id === this.tipoSeleccionado);
     if (producto) {
-      this.carrito.agregarAlCarrito(producto, this.cantidad);
+      const token = this.authService.getToken();
+      const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
+
+      this.http.post<any>('http://localhost:3000/api/productes', {
+        nom: producto.nombre,
+        preu: producto.precio,
+        quantitat: this.cantidad
+      }, { headers }).subscribe({
+        next: (res) => {
+          this.carrito.agregarAlCarrito(producto, this.cantidad, res.id);
+          this.cantidad = 1; // ← resetear el input después de añadir
+          console.log('Guardat a MySQL amb id:', res.id);
+        },
+        error: (err) => console.error('Error MySQL:', err)
+      });
+
       alert(`${producto.nombre} añadido al carrito!`);
     }
   }

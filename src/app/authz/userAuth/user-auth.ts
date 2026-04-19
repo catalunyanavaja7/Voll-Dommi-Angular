@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { environment } from '../../../enviroments/environment';
+import {Carrito} from '../../services/carrito';
 
 interface Usuario {
   uid: string;
@@ -22,7 +23,8 @@ export class UserAuth {
 
   constructor(
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private carritoService: Carrito
   ) {}
 
   // Registre
@@ -51,6 +53,7 @@ export class UserAuth {
       next: (res) => {
         sessionStorage.setItem('token', res.token);
         sessionStorage.setItem('usuari', JSON.stringify(res.user));
+        this.carritoService.recargarCarrito();
         alert('Inici de sessió correcte!');
         this.router.navigate(['']);
       },
@@ -100,6 +103,7 @@ export class UserAuth {
   logout(): void {
     sessionStorage.removeItem('token');
     sessionStorage.removeItem('usuari');
+    this.carritoService.recargarCarrito();
     this.router.navigate(['/sesion']);
   }
 

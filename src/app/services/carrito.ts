@@ -1,44 +1,56 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { Producto } from '../models/producto';
 
-// Interfaz para los items del carrito
 export interface ItemCarrito {
   producto: Producto;
   cantidad: number;
+  mysqlId?: number;
 }
 
-@Injectable({
-  providedIn: 'root'
-})
-
+@Injectable({ providedIn: 'root' })
 export class Carrito {
 
   private items: ItemCarrito[] = [];
-  private readonly STORAGE_KEY = 'carrito_productos';
+  private itemsSubject = new BehaviorSubject<ItemCarrito[]>([]);
+  items$ = this.itemsSubject.asObservable();
+
+  private get STORAGE_KEY(): string {
+    const usuari = sessionStorage.getItem('usuari');
+    const uid = usuari ? JSON.parse(usuari).uid : 'guest';
+    return `carrito_${uid}`;
+  }
 
   constructor() {
     this.cargarCarrito();
   }
 
   private cargarCarrito() {
-    const datosGuardados = localStorage.getItem(this.STORAGE_KEY);
-
-    if (datosGuardados) {
-      this.items = JSON.parse(datosGuardados);
-    }
+    console.log('Cargando con clave:', this.STORAGE_KEY);
+    const datos = localStorage.getItem(this.STORAGE_KEY);
+    this.items = datos ? JSON.parse(datos) : [];
+    this.itemsSubject.next(this.items);
   }
 
   private guardarCarrito() {
-      localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this.items));
+    console.log('Guardando en clave:', this.STORAGE_KEY);
+    console.log('Items:', this.items);
+    localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this.items));
+    this.itemsSubject.next(this.items);
   }
 
-  agregarAlCarrito(producto: Producto, cantidad: number) {
-    const itemExistente = this.items.find(item => item.producto.id === producto.id);
+  recargarCarrito() {
+    this.items = [];
+    this.cargarCarrito();
+  }
 
+  agregarAlCarrito(producto: Producto, cantidad: number, mysqlId?: number) {
+    const itemExistente = this.items.find(item => item.producto.id === producto.id);
     if (itemExistente) {
       itemExistente.cantidad += cantidad;
+      if (mysqlId) itemExistente.mysqlId = mysqlId;
     } else {
-      this.items.push({ producto, cantidad });
+      this.items.push({ producto, cantidad, mysqlId });
     }
     this.guardarCarrito();
   }
@@ -49,9 +61,7 @@ export class Carrito {
 
   actualizarCantidad(productoId: string, nuevaCantidad: number) {
     const item = this.items.find(i => i.producto.id === productoId);
-    if (item) {
-      item.cantidad = nuevaCantidad;
-    }
+    if (item) item.cantidad = nuevaCantidad;
     this.guardarCarrito();
   }
 
@@ -66,11 +76,6 @@ export class Carrito {
   }
 
   calcularTotal(): number {
-    let total = 0;
-    for (let item of this.items) {
-      total += item.producto.precio * item.cantidad;
-    }
-    return total;
+    return this.items.reduce((total, item) => total + item.producto.precio * item.cantidad, 0);
   }
 }
-
