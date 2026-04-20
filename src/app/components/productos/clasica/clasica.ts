@@ -6,7 +6,6 @@ import { FormsModule } from '@angular/forms';
 import { Producto } from '../../../models/producto';
 import { Plantilla } from '../../../models/plantilla'
 import { Carrito } from '../../../services/carrito';
-import {Catalogo} from '../../../pages/catalogo/catalogo';
 import {CervezaService} from '../../../models/CervezasService';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -97,7 +96,7 @@ export class Clasica implements OnInit {
       const token = this.authService.getToken();
       const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
 
-      this.http.post<any>('http://localhost:3000/api/productes', {
+      this.http.post<any>('http://localhost:8080/api/productes', {
         nom: producto.nombre,
         preu: producto.precio,
         quantitat: this.cantidad

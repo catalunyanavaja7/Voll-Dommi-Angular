@@ -26,15 +26,12 @@ export class Carrito {
   }
 
   private cargarCarrito() {
-    console.log('Cargando con clave:', this.STORAGE_KEY);
     const datos = localStorage.getItem(this.STORAGE_KEY);
     this.items = datos ? JSON.parse(datos) : [];
     this.itemsSubject.next(this.items);
   }
 
   private guardarCarrito() {
-    console.log('Guardando en clave:', this.STORAGE_KEY);
-    console.log('Items:', this.items);
     localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this.items));
     this.itemsSubject.next(this.items);
   }

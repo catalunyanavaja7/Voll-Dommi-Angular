@@ -3,7 +3,7 @@
 // Entry point del backend Node.js – Projecte Botiga Virtual A3
 // ─────────────────────────────────────────────────────────────────────────────
 
-// Puerto de escucha predeterminado: 3000
+// Puerto de escucha predeterminado: 8080
 
 require('dotenv').config();
 const express    = require('express');
@@ -15,7 +15,7 @@ const authRoutes = require('./routes/auth.routes');
 const userRoutes = require('./routes/user.routes');
 
 const app  = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
 
 app.use(cors({

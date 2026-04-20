@@ -31,7 +31,6 @@ export class CarritoComponent implements OnInit {
   ngOnInit(): void {
     this.carritoService.recargarCarrito();
     this.carritoService.items$.subscribe(items => {
-      console.log('Items del observable:', items);
       this.items = items;
       this.calcularTotales();
     });
@@ -63,21 +62,19 @@ export class CarritoComponent implements OnInit {
     const token = this.UserAuth.getToken();
     const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
 
-    const peticions = this.items.map(item =>
-      this.http.post('http://localhost:3000/api/productes', {
-        nom: item.producto.nombre,
-        preu: item.producto.precio,
-        quantitat: item.cantidad
-      }, { headers }).toPromise()
-    );
+    const eliminacions = this.items
+      .filter(item => item.mysqlId)
+      .map(item =>
+        this.http.delete(`http://localhost:8080/api/productes/${item.mysqlId}`, { headers }).toPromise()
+      );
 
-    Promise.all(peticions).then(() => {
+    Promise.all(eliminacions).then(() => {
       this.carritoService.vaciarCarrito();
       this.mostrarPopup = false;
       alert('Compra confirmada!');
     }).catch(err => {
-      console.error('Error guardant la compra:', err);
-      alert('Error al guardar la compra.');
+      console.error('Error eliminant la compra:', err);
+      alert('Error al confirmar la compra.');
     });
   }
 
@@ -94,7 +91,7 @@ export class CarritoComponent implements OnInit {
     const token = this.UserAuth.getToken();
     const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
 
-    this.http.put(`http://localhost:3000/api/productes/${item.mysqlId}`, {
+    this.http.put(`http://localhost:8080/api/productes/${item.mysqlId}`, {
       quantitat: item.cantidad
     }, { headers }).subscribe({
       error: (err) => console.error('Error actualitzant MySQL:', err)
@@ -105,7 +102,7 @@ export class CarritoComponent implements OnInit {
     const token = this.UserAuth.getToken();
     const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
 
-    this.http.delete(`http://localhost:3000/api/productes/${mysqlId}`, { headers }).subscribe({
+    this.http.delete(`http://localhost:8080/api/productes/${mysqlId}`, { headers }).subscribe({
       error: (err) => console.error('Error eliminant MySQL:', err)
     });
   }
