@@ -1,6 +1,7 @@
 
 
 const jwt = require('jsonwebtoken');
+const { db, NODES } = require('../config/firebase');
 require('dotenv').config();
 
 const verifyToken = (req, res, next) => {
@@ -28,4 +29,34 @@ const verifyToken = (req, res, next) => {
   }
 };
 
-module.exports = { verifyToken };
+const requireAdmin = async (req, res, next) => {
+  try {
+    const snapshot = await db.ref(`${NODES.USERS}/${req.userId}`).once('value');
+
+    if (!snapshot.exists()) {
+      return res.status(404).json({
+        success: false,
+        message: 'Usuari no trobat.',
+      });
+    }
+
+    const user = snapshot.val();
+
+    if (user.rol !== 'admin') {
+      return res.status(403).json({
+        success: false,
+        message: 'No tens permisos d administrador.',
+      });
+    }
+
+    req.userRole = user.rol;
+    next();
+  } catch (err) {
+    return res.status(500).json({
+      success: false,
+      message: 'Error comprovant permisos d administrador.',
+    });
+  }
+};
+
+module.exports = { verifyToken, requireAdmin };

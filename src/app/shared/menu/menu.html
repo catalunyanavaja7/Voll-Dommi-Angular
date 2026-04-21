@@ -14,6 +14,9 @@
     }
     <a class="textomenu" routerLink="condiciones">CONDICIONES</a>
     <a class="textomenu carrito-link" routerLink="carrito">CARRITO</a>
+    @if (authService.esAdmin()) {
+      <a class="textomenu" routerLink="administrador">ADMINISTRADOR</a>
+    }
 
     @if (authService.estaLogueado()) {
       <a class="usuario-nombre" routerLink="userProfile">{{authService.obtenerUsuarioLogueado()?.nom}}</a>

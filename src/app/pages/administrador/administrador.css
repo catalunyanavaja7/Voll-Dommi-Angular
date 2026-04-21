@@ -1,0 +1,48 @@
+.admin-page {
+  padding: 140px 32px 48px;
+  min-height: 100vh;
+  background: #f5f1e8;
+  color: #1f1a17;
+}
+
+.admin-header {
+  margin-bottom: 24px;
+}
+
+.admin-header h1 {
+  margin: 0 0 8px;
+}
+
+.admin-header p {
+  margin: 0;
+}
+
+.status {
+  padding: 16px 0;
+}
+
+.status.error {
+  color: #9f2d2d;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  background: #fffdf8;
+  border: 1px solid #d8cfbf;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid #e9e1d4;
+}
+
+th {
+  background: #ece2cf;
+}

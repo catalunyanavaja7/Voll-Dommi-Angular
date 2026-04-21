@@ -5,6 +5,7 @@ import { Carrito as CarritoService, ItemCarrito } from '../../services/carrito';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UserAuth } from '../../authz/userAuth/user-auth';
+import { environment } from '../../../enviroments/environment';
 
 @Component({
   selector: 'app-carrito',
@@ -14,6 +15,7 @@ import { UserAuth } from '../../authz/userAuth/user-auth';
   styleUrls: ['./carrito.css'],
 })
 export class CarritoComponent implements OnInit {
+  private readonly apiUrl = environment.apiUrl;
 
   items: ItemCarrito[] = [];
   totalProductos: number = 0;
@@ -62,19 +64,21 @@ export class CarritoComponent implements OnInit {
     const token = this.UserAuth.getToken();
     const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
 
-    const eliminacions = this.items
-      .filter(item => item.mysqlId)
-      .map(item =>
-        this.http.delete(`http://localhost:8080/api/productes/${item.mysqlId}`, { headers }).toPromise()
-      );
-
-    Promise.all(eliminacions).then(() => {
-      this.carritoService.vaciarCarrito();
-      this.mostrarPopup = false;
-      alert('Compra confirmada!');
-    }).catch(err => {
-      console.error('Error eliminant la compra:', err);
-      alert('Error al confirmar la compra.');
+    this.http.post(`${this.apiUrl}/productes/checkout`, {
+      items: this.items.map(item => ({
+        ...item,
+        enOferta: false,
+      }))
+    }, { headers }).subscribe({
+      next: () => {
+        this.carritoService.vaciarCarrito();
+        this.mostrarPopup = false;
+        alert('Compra confirmada!');
+      },
+      error: (err) => {
+        console.error('Error eliminant la compra:', err);
+        alert('Error al confirmar la compra.');
+      }
     });
   }
 
@@ -91,7 +95,7 @@ export class CarritoComponent implements OnInit {
     const token = this.UserAuth.getToken();
     const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
 
-    this.http.put(`http://localhost:8080/api/productes/${item.mysqlId}`, {
+    this.http.put(`${this.apiUrl}/productes/${item.mysqlId}`, {
       quantitat: item.cantidad
     }, { headers }).subscribe({
       error: (err) => console.error('Error actualitzant MySQL:', err)
@@ -102,7 +106,7 @@ export class CarritoComponent implements OnInit {
     const token = this.UserAuth.getToken();
     const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
 
-    this.http.delete(`http://localhost:8080/api/productes/${mysqlId}`, { headers }).subscribe({
+    this.http.delete(`${this.apiUrl}/productes/${mysqlId}`, { headers }).subscribe({
       error: (err) => console.error('Error eliminant MySQL:', err)
     });
   }

@@ -68,6 +68,7 @@ const register = async (req, res) => {
       nom:           nom.trim(),
       cognoms:       cognoms.trim(),
       email:         email.toLowerCase().trim(),
+      rol:           'user',
       password:      hashedPassword,
       telefon:       telefon || '',
       adreca:        adreca  || '',

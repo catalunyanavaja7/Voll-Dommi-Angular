@@ -13,6 +13,7 @@ const productesRoutes = require('./routes/productes.routes');
 
 const authRoutes = require('./routes/auth.routes');
 const userRoutes = require('./routes/user.routes');
+const adminRoutes = require('./routes/admin.routes');
 
 const app  = express();
 const PORT = process.env.PORT || 8080;
@@ -30,6 +31,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api/auth', authRoutes);
 app.use('/api/user', userRoutes);
 app.use('/api/productes', productesRoutes);
+app.use('/api/admin', adminRoutes);
 
 // MySQL Workbench
 const pool = require('./config/mysql');

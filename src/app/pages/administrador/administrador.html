@@ -1,0 +1,41 @@
+<section class="admin-page">
+  <div class="admin-header">
+    <h1>Administrador</h1>
+    <p>Historial complet de productes comprats.</p>
+  </div>
+
+  @if (loading) {
+    <p class="status">Carregant historial...</p>
+  } @else if (error) {
+    <p class="status error">{{ error }}</p>
+  } @else if (historial.length === 0) {
+    <p class="status">Encara no hi ha compres registrades.</p>
+  } @else {
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Usuari</th>
+            <th>Producte</th>
+            <th>Oferta</th>
+            <th>Quantitat</th>
+            <th>Preu</th>
+            <th>Data</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (item of historial; track item.id) {
+            <tr>
+              <td>{{ item.user_email }}</td>
+              <td>{{ item.producte_nom }}</td>
+              <td>{{ item.en_oferta ? 'Si' : 'No' }}</td>
+              <td>{{ item.quantitat }}</td>
+              <td>{{ item.preu | number:'1.2-2' }} EUR</td>
+              <td>{{ item.data_compra | date:'dd/MM/yyyy HH:mm' }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</section>

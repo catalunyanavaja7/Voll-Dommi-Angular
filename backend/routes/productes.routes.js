@@ -32,6 +32,76 @@ router.post('/', async (req, res) => {
   }
 });
 
+// Confirmar compra y guardar historial
+router.post('/checkout', async (req, res) => {
+  const { items } = req.body;
+
+  if (!Array.isArray(items) || items.length === 0) {
+    return res.status(400).json({
+      success: false,
+      message: 'No hi ha productes per confirmar.',
+    });
+  }
+
+  let connection;
+
+  try {
+    connection = await db.getConnection();
+    await connection.beginTransaction();
+
+    for (const item of items) {
+      const producte = item.producto || {};
+      const mysqlId = item.mysqlId || null;
+      const quantitat = Number(item.cantidad) || 0;
+
+      if (!producte.nombre || quantitat <= 0) {
+        throw new Error('Hi ha productes amb dades incompletes al checkout.');
+      }
+
+      await connection.query(
+        `INSERT INTO historial_productes (
+          firebase_uid,
+          user_email,
+          producte_id,
+          producte_nom,
+          preu,
+          quantitat,
+          en_oferta,
+          data_compra
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, NOW())`,
+        [
+          req.userId,
+          req.userEmail,
+          producte.id || null,
+          producte.nombre,
+          Number(producte.precio) || 0,
+          quantitat,
+          item.enOferta ? 1 : 0,
+        ]
+      );
+
+      if (mysqlId) {
+        await connection.query(
+          'DELETE FROM productes WHERE id = ? AND firebase_uid = ?',
+          [mysqlId, req.userId]
+        );
+      }
+    }
+
+    await connection.commit();
+    res.json({ success: true, message: 'Compra registrada correctament.' });
+  } catch (err) {
+    if (connection) {
+      await connection.rollback();
+    }
+    res.status(500).json({ success: false, message: err.message });
+  } finally {
+    if (connection) {
+      connection.release();
+    }
+  }
+});
+
 // Actualizar cantidad
 router.put('/:id', async (req, res) => {
   const { quantitat } = req.body;

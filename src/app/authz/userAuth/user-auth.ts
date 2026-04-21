@@ -9,6 +9,7 @@ interface Usuario {
   nom: string;
   cognoms: string;
   email: string;
+  rol?: string;
   emailVerificat: boolean;
   createdAt: string;
   updatedAt: string;
@@ -121,5 +122,9 @@ export class UserAuth {
   obtenerUsuarioLogueado(): Usuario | null {
     const usuari = sessionStorage.getItem('usuari');
     return usuari ? JSON.parse(usuari) : null;
+  }
+
+  esAdmin(): boolean {
+    return this.obtenerUsuarioLogueado()?.rol === 'admin';
   }
 }

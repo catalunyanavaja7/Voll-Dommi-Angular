@@ -14,6 +14,7 @@ import {Login} from './authz/login/login';
 import {Inicio} from './pages/inicio/inicio';
 import {FooterComponent} from './shared/footer/footer';
 import {UserProfile} from './authz/user-profile/user-profile';
+import {AdministradorComponent} from './pages/administrador/administrador';
 
 export const routes: Routes = [
   {path: 'accesorios', component: Accesorios},
@@ -31,5 +32,6 @@ export const routes: Routes = [
   {path: 'condiciones', component: Condiciones},
   {path: 'sesion', component: Login},
   {path: 'registro', component: Signin},
-  {path: 'userProfile', component: UserProfile}
+  {path: 'userProfile', component: UserProfile},
+  {path: 'administrador', component: AdministradorComponent}
 ];
