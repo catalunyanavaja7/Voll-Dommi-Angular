@@ -47,3 +47,28 @@ td {
 th {
   background: #ece2cf;
 }
+
+/* Secció gràfics */
+
+.grafics-seccio {
+  margin-top: 48px;
+}
+
+.grafics-seccio h2 {
+  margin-bottom: 24px;
+  font-size: 1.4rem;
+}
+
+/* Dos gràfics en columnes que s'adapten a pantalles petites */
+.grafics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 24px;
+}
+
+.grafic-card {
+  background: #fffdf8;
+  border: 1px solid #d8cfbf;
+  padding: 24px;
+  border-radius: 4px;
+}

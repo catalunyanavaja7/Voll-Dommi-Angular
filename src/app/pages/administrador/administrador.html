@@ -30,5 +30,23 @@
       </tbody>
     </table>
   </div>
+  @if (historial.length > 0) {
+    <div class="grafics-seccio">
+      <h2>Estadístiques de vendes</h2>
 
+      <div class="grafics-grid">
+
+        <!-- Gràfic 1: Barres per producte i dia -->
+        <div class="grafic-card">
+          <canvas #chartBarCanvas></canvas>
+        </div>
+
+        <!-- Gràfic 2: Línies oferta vs sense oferta -->
+        <div class="grafic-card">
+          <canvas #chartLineCanvas></canvas>
+        </div>
+
+      </div>
+    </div>
+  }
 </section>
