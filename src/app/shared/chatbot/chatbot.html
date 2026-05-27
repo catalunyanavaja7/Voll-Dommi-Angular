@@ -1,0 +1,42 @@
+<!-- Botó flotant -->
+<button class="chat-toggle" (click)="toggleChat()">
+  {{ obert ? '✕' : '💬' }}
+</button>
+
+@if (obert) {
+  <div class="chat-window">
+
+    <div class="chat-header">
+      <span>Cordom-IA 🍻</span>
+    </div>
+
+    <div class="chat-main">
+
+      <!-- Columna dreta — missatges i input -->
+      <div class="chat-right">
+        <div class="chat-body" #chatBody>
+          @for (msg of missatges; track $index) {
+            <div class="missatge" [class.user]="msg.origen === 'user'" [class.bot]="msg.origen === 'bot'">
+              {{ msg.text }}
+            </div>
+          }
+          @if (carregant) {
+            <div class="missatge bot escrivint">...</div>
+          }
+        </div>
+
+        <div class="chat-footer">
+          <input
+            type="text"
+            [(ngModel)]="inputText"
+            (keydown)="onKeyDown($event)"
+            placeholder="Escriu un missatge..."
+            [disabled]="carregant"
+          />
+          <button (click)="enviarMissatge()" [disabled]="carregant">➤</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+}
