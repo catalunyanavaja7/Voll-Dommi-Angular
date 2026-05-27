@@ -2,10 +2,11 @@ import {Component, HostListener, OnInit} from '@angular/core';
 import {CommonModule, NgClass} from '@angular/common';
 import {RouterLink} from "@angular/router";
 import {UserAuth} from '../../authz/userAuth/user-auth';
+import { ChatbotComponent } from '../chatbot/chatbot';
 
 @Component({
   selector: 'app-menu',
-  imports: [NgClass, RouterLink, CommonModule],
+  imports: [NgClass, RouterLink, CommonModule, ChatbotComponent],
   templateUrl: './menu.html',
   styleUrl: './menu.css',
   standalone: true

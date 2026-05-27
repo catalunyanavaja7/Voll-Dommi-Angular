@@ -11,9 +11,11 @@ const cors       = require('cors');
 require('./config/firebase');
 const productesRoutes = require('./routes/productes.routes');
 
+
 const authRoutes = require('./routes/auth.routes');
 const userRoutes = require('./routes/user.routes');
 const adminRoutes = require('./routes/admin.routes');
+const chatRoutes = require('./routes/chat.routes');
 
 const app  = express();
 const PORT = process.env.PORT || 8080;
@@ -32,6 +34,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/user', userRoutes);
 app.use('/api/productes', productesRoutes);
 app.use('/api/admin', adminRoutes);
+app.use('/api/chat', chatRoutes);
 
 // MySQL Workbench
 const pool = require('./config/mysql');
