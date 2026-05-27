@@ -36,6 +36,7 @@
         [(ngModel)]="apellido"
         name="apellido"
         placeholder="Ingrese su apellido"
+        required
       >
 
       <input
@@ -68,6 +69,13 @@
         </td>
       </tr>
     </form>
+
+    <app-captcha-modal
+      [visible]="mostrarCaptcha"
+      titulo="Captcha de registro"
+      (confirmado)="confirmarCaptcha()"
+      (cancelado)="cancelarCaptcha()"
+    />
   </div>
 
   <aside class="AD">

@@ -74,6 +74,13 @@
         </div>
       </div>
     </div>
+
+    <app-captcha-modal
+      [visible]="mostrarCaptcha"
+      titulo="Captcha de inicio de sesion"
+      (confirmado)="confirmarCaptcha()"
+      (cancelado)="cancelarCaptcha()"
+    />
   </div>
   <aside class="AD">
     <video autoplay muted loop playsinline id="imagenDerecha">
