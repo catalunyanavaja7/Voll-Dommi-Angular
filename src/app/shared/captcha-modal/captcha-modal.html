@@ -1,0 +1,22 @@
+<div *ngIf="visible" class="captcha-overlay" (click)="cerrar()">
+  <div class="captcha-modal" (click)="$event.stopPropagation()">
+    <h2>{{ titulo }}</h2>
+    <p>Resuelve la operacion para confirmar que no eres un bot.</p>
+
+    <div class="captcha-operacion">{{ numeroA }} + {{ numeroB }} = ?</div>
+
+    <input
+      type="text"
+      [(ngModel)]="respuestaUsuario"
+      placeholder="Escribe el resultado"
+      name="captchaRespuesta"
+    >
+
+    <p *ngIf="error" class="captcha-error">{{ error }}</p>
+
+    <div class="captcha-acciones">
+      <button type="button" class="captcha-confirmar" (click)="validar()">Confirmar</button>
+      <button type="button" class="captcha-cancelar" (click)="cerrar()">Cancelar</button>
+    </div>
+  </div>
+</div>
