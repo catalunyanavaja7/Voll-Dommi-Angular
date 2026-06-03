@@ -26,10 +26,10 @@ export class UserProfile {
 
   Usuari: Usuario | null;
 
-  // Mode edició
+  // Modo de edición
   editant: boolean = false;
 
-  // Camps del formulari d'edició
+  // Campos formulario
   nomEdit: string = '';
   cognomsEdit: string = '';
   adrecaEdit: string = '';
@@ -38,7 +38,7 @@ export class UserProfile {
     this.Usuari = auth.obtenerUsuarioLogueado();
   }
 
-  // Activa el mode edició i omple els camps amb les dades actuals
+  // Metodo activar edicion
   activarEdicio(): void {
     this.nomEdit     = this.Usuari?.nom     || '';
     this.cognomsEdit = this.Usuari?.cognoms || '';
@@ -46,15 +46,15 @@ export class UserProfile {
     this.editant = true;
   }
 
-  // Cancel·la sense desar
+  // Cancela sin guardar
   cancelarEdicio(): void {
     this.editant = false;
   }
 
-  // Desa els canvis al backend i actualitza la vista
+  // Guarda los cambios en el backend y actualiza los cambios
   guardarCanvis(): void {
     if (!this.nomEdit.trim()) {
-      alert('El nom no pot estar buit.');
+      alert('El nombre no puede estar vacio maquina');
       return;
     }
 
@@ -66,7 +66,7 @@ export class UserProfile {
 
     this.auth.actualizarPerfil(dades);
 
-    // Actualitzar la vista localment de forma immediata
+    // Actualizar la lista inmediatamente
     if (this.Usuari) {
       this.Usuari.nom     = dades.nom;
       this.Usuari.cognoms = dades.cognoms;

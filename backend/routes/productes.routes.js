@@ -3,7 +3,7 @@ const { verifyToken } = require('../middleware/auth.middleware');
 const db = require('../config/mysql');
 
 const router = Router();
-router.use(verifyToken); // todas las rutas requieren token Firebase
+router.use(verifyToken);
 
 // Obtener productos del usuario logueado
 router.get('/', async (req, res) => {
